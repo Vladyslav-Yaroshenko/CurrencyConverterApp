@@ -9,9 +9,12 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
+    private let viewModel = MainTabBarViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .red
     }
+    
+   
 }

@@ -13,6 +13,8 @@
 		873B92AD2A7134EB003242CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 873B92AC2A7134EB003242CD /* Assets.xcassets */; };
 		873B92B02A7134EB003242CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B92AE2A7134EB003242CD /* LaunchScreen.storyboard */; };
 		873B92BD2A713791003242CD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92BC2A713791003242CD /* MainTabBarController.swift */; };
+		873B92C22A713A23003242CD /* MainTabBarItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92C12A713A23003242CD /* MainTabBarItemModel.swift */; };
+		873B92C42A713A90003242CD /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92C32A713A90003242CD /* MainTabBarViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		873B92AF2A7134EB003242CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B92B12A7134EB003242CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		873B92BC2A713791003242CD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		873B92C12A713A23003242CD /* MainTabBarItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarItemModel.swift; sourceTree = "<group>"; };
+		873B92C32A713A90003242CD /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +60,12 @@
 		873B929F2A7134E9003242CD /* CurrencyConverterApp */ = {
 			isa = PBXGroup;
 			children = (
+				873B92C02A7139FB003242CD /* Models */,
+				873B92BF2A7139F4003242CD /* ViewModels */,
+				873B92BE2A7139D2003242CD /* Views */,
 				873B92B82A713692003242CD /* Supporting */,
 				873B92B72A713661003242CD /* CoreData */,
 				873B92B12A7134EB003242CD /* Info.plist */,
-				873B92BC2A713791003242CD /* MainTabBarController.swift */,
 			);
 			path = CurrencyConverterApp;
 			sourceTree = "<group>";
@@ -81,6 +87,30 @@
 				873B92AE2A7134EB003242CD /* LaunchScreen.storyboard */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		873B92BE2A7139D2003242CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				873B92BC2A713791003242CD /* MainTabBarController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		873B92BF2A7139F4003242CD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				873B92C32A713A90003242CD /* MainTabBarViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		873B92C02A7139FB003242CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				873B92C12A713A23003242CD /* MainTabBarItemModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +185,8 @@
 			files = (
 				873B92A12A7134E9003242CD /* AppDelegate.swift in Sources */,
 				873B92A32A7134E9003242CD /* SceneDelegate.swift in Sources */,
+				873B92C22A713A23003242CD /* MainTabBarItemModel.swift in Sources */,
+				873B92C42A713A90003242CD /* MainTabBarViewModel.swift in Sources */,
 				873B92BD2A713791003242CD /* MainTabBarController.swift in Sources */,
 				873B92AB2A7134E9003242CD /* CurrencyConverterApp.xcdatamodeld in Sources */,
 			);
