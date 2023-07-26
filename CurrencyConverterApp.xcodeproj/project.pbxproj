@@ -22,6 +22,9 @@
 		873B92D22A7172AE003242CD /* CurrencyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92D12A7172AE003242CD /* CurrencyListViewModel.swift */; };
 		873B92D52A7190A4003242CD /* MainTabBarViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92D42A7190A4003242CD /* MainTabBarViewModelProtocol.swift */; };
 		873B92D72A7191BE003242CD /* CurrencyListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92D62A7191BE003242CD /* CurrencyListViewModelProtocol.swift */; };
+		873B92DB2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92DA2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift */; };
+		873B92DD2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92DC2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift */; };
+		873B92DF2A719A8E003242CD /* CurrencyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92DE2A719A8E003242CD /* CurrencyListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		873B92D12A7172AE003242CD /* CurrencyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewModel.swift; sourceTree = "<group>"; };
 		873B92D42A7190A4003242CD /* MainTabBarViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModelProtocol.swift; sourceTree = "<group>"; };
 		873B92D62A7191BE003242CD /* CurrencyListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewModelProtocol.swift; sourceTree = "<group>"; };
+		873B92DA2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewCellViewModelProtocol.swift; sourceTree = "<group>"; };
+		873B92DC2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		873B92DE2A719A8E003242CD /* CurrencyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 				873B92BC2A713791003242CD /* MainTabBarController.swift */,
 				873B92C52A71405B003242CD /* CurrencyListTableViewController.swift */,
 				873B92C72A7140AB003242CD /* WalletTableViewController.swift */,
+				873B92DE2A719A8E003242CD /* CurrencyListTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -120,6 +127,7 @@
 			children = (
 				873B92C32A713A90003242CD /* MainTabBarViewModel.swift */,
 				873B92D12A7172AE003242CD /* CurrencyListViewModel.swift */,
+				873B92DC2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -138,6 +146,7 @@
 			children = (
 				873B92D42A7190A4003242CD /* MainTabBarViewModelProtocol.swift */,
 				873B92D62A7191BE003242CD /* CurrencyListViewModelProtocol.swift */,
+				873B92DA2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -225,6 +234,9 @@
 				873B92BD2A713791003242CD /* MainTabBarController.swift in Sources */,
 				873B92D52A7190A4003242CD /* MainTabBarViewModelProtocol.swift in Sources */,
 				873B92AB2A7134E9003242CD /* CurrencyConverterApp.xcdatamodeld in Sources */,
+				873B92DB2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift in Sources */,
+				873B92DF2A719A8E003242CD /* CurrencyListTableViewCell.swift in Sources */,
+				873B92DD2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

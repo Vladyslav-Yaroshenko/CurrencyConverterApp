@@ -8,5 +8,5 @@
 import UIKit
 
 protocol MainTabBarViewModelProtocol: AnyObject {
-    var tabBarItems: [UITabBarItem] { get set }
+    var tabBarItems: [MainTabBarItemModel] { get set }
 }

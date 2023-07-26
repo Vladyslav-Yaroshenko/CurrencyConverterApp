@@ -9,4 +9,5 @@ import Foundation
 
 protocol CurrencyListViewModelProtocol: AnyObject {
     func numberOfRows() -> Int
+    func cellViewModel(for indexPath: IndexPath) -> CurrencyListTableViewCellViewModelProtocol?
 }

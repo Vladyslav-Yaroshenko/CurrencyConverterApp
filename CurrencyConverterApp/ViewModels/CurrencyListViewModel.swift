@@ -10,6 +10,7 @@ import Foundation
 class CurrencyListViewModel: CurrencyListViewModelProtocol {
     
     var currencies: [Currency] = []
+    var imagesName: [String] = ["ukraine 1"]
 
     
     func fetchDataFromJson() {
@@ -23,7 +24,20 @@ class CurrencyListViewModel: CurrencyListViewModelProtocol {
         }
     }
     
+    init() {
+        fetchDataFromJson()
+    }
+    
     func numberOfRows() -> Int {
         return currencies.count
+    }
+    
+    func cellViewModel(for indexPath: IndexPath) -> CurrencyListTableViewCellViewModelProtocol? {
+        let currency = currencies[indexPath.row]
+        
+        return CurrencyListTableViewCellViewModel(currency: currency,
+                                                  imageName: "ukraine 1",
+                                                  amountOfMoney: "2100",
+                                                  currencyСonversionСode: "UAH")
     }
 }

@@ -24,7 +24,7 @@ class CurrencyListTableViewController: UITableViewController {
         viewModel = CurrencyListViewModel()
         
         self.navigationItem.rightBarButtonItem = barButtonItem
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(CurrencyListTableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
 
@@ -40,9 +40,11 @@ class CurrencyListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CurrencyListTableViewCell
+        guard let viewModel = viewModel,
+              let cellViewModel = viewModel.cellViewModel(for: indexPath)
+        else { return UITableViewCell() }
+        cell.viewModel = cellViewModel
         return cell
     }
     
