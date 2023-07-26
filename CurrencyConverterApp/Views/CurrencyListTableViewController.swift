@@ -8,41 +8,44 @@
 import UIKit
 
 class CurrencyListTableViewController: UITableViewController {
-
+    
+    let barButtonItem: UIBarButtonItem = {
+        let barButton = UIBarButtonItem()
+        barButton.image = UIImage(named: "search")
+        barButton.tintColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 0.85)
+        return barButton
+    }()
+    
+    var viewModel: CurrencyListViewModelProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let barButtonItem: UIBarButtonItem = {
-            let barButton = UIBarButtonItem()
-            barButton.image = UIImage(named: "search")
-            barButton.tintColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 0.85)
-            return barButton
-        }()
+        viewModel = CurrencyListViewModel()
         
         self.navigationItem.rightBarButtonItem = barButtonItem
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
+    
+
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return viewModel?.numberOfRows() ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -7,8 +7,8 @@
 
 import UIKit
 
-class MainTabBarViewModel {
-    let tabBarItems: [MainTabBarItemModel] = [
+class MainTabBarViewModel: MainTabBarViewModelProtocol {
+    var tabBarItems: [MainTabBarItemModel] = [
         MainTabBarItemModel(title: "Currency List", imageName: "currency-dollar"),
         MainTabBarItemModel(title: "Wallet", imageName: "wallet")
 //        MainTabBarItemModel(title: "Bids", imageName: "credit-card"),
