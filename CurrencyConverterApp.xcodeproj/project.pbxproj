@@ -26,6 +26,7 @@
 		873B92DD2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92DC2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift */; };
 		873B92DF2A719A8E003242CD /* CurrencyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92DE2A719A8E003242CD /* CurrencyListTableViewCell.swift */; };
 		873B92E12A727D27003242CD /* SearchableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92E02A727D27003242CD /* SearchableProtocol.swift */; };
+		873B92E72A729921003242CD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92E62A729921003242CD /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		873B92DC2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		873B92DE2A719A8E003242CD /* CurrencyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewCell.swift; sourceTree = "<group>"; };
 		873B92E02A727D27003242CD /* SearchableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableProtocol.swift; sourceTree = "<group>"; };
+		873B92E62A729921003242CD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,14 +84,15 @@
 		873B929F2A7134E9003242CD /* CurrencyConverterApp */ = {
 			isa = PBXGroup;
 			children = (
+				873B92E22A7296FD003242CD /* ServiseLayer */,
 				873B92D32A719070003242CD /* Protocols */,
 				873B92C02A7139FB003242CD /* Models */,
 				873B92BF2A7139F4003242CD /* ViewModels */,
 				873B92BE2A7139D2003242CD /* Views */,
 				873B92B82A713692003242CD /* Supporting */,
 				873B92B72A713661003242CD /* CoreData */,
-				873B92B12A7134EB003242CD /* Info.plist */,
 				873B92C92A7158FC003242CD /* country_currencies.json */,
+				873B92B12A7134EB003242CD /* Info.plist */,
 			);
 			path = CurrencyConverterApp;
 			sourceTree = "<group>";
@@ -120,6 +123,7 @@
 				873B92C52A71405B003242CD /* CurrencyListTableViewController.swift */,
 				873B92C72A7140AB003242CD /* WalletTableViewController.swift */,
 				873B92DE2A719A8E003242CD /* CurrencyListTableViewCell.swift */,
+				873B92E62A729921003242CD /* SettingsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,6 +156,13 @@
 				873B92E02A727D27003242CD /* SearchableProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		873B92E22A7296FD003242CD /* ServiseLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ServiseLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +252,7 @@
 				873B92DF2A719A8E003242CD /* CurrencyListTableViewCell.swift in Sources */,
 				873B92DD2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift in Sources */,
 				873B92E12A727D27003242CD /* SearchableProtocol.swift in Sources */,
+				873B92E72A729921003242CD /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
