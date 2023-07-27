@@ -25,6 +25,7 @@
 		873B92DB2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92DA2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift */; };
 		873B92DD2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92DC2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift */; };
 		873B92DF2A719A8E003242CD /* CurrencyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92DE2A719A8E003242CD /* CurrencyListTableViewCell.swift */; };
+		873B92E12A727D27003242CD /* SearchableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92E02A727D27003242CD /* SearchableProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		873B92DA2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		873B92DC2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		873B92DE2A719A8E003242CD /* CurrencyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewCell.swift; sourceTree = "<group>"; };
+		873B92E02A727D27003242CD /* SearchableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				873B92D42A7190A4003242CD /* MainTabBarViewModelProtocol.swift */,
 				873B92D62A7191BE003242CD /* CurrencyListViewModelProtocol.swift */,
 				873B92DA2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift */,
+				873B92E02A727D27003242CD /* SearchableProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				873B92DB2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift in Sources */,
 				873B92DF2A719A8E003242CD /* CurrencyListTableViewCell.swift in Sources */,
 				873B92DD2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift in Sources */,
+				873B92E12A727D27003242CD /* SearchableProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

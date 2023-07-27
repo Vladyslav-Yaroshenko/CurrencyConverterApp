@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CurrencyListViewModelProtocol: AnyObject {
+protocol CurrencyListViewModelProtocol: SearchableProtocol {
     func numberOfRows() -> Int
     func cellViewModel(for indexPath: IndexPath) -> CurrencyListTableViewCellViewModelProtocol?
 }
