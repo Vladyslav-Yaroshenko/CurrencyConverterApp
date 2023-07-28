@@ -39,6 +39,8 @@ class CurrencyListTableViewController: UITableViewController {
             searchController?.searchBar.tintColor = .black
             navigationItem.searchController = searchController
             navigationItem.hidesSearchBarWhenScrolling = false
+        } else if navigationItem.searchController == nil {
+            navigationItem.searchController = searchController
         }
     }
     
