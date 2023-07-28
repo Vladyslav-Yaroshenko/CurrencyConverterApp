@@ -40,6 +40,10 @@
 		873B93122A73D3B9003242CD /* SettingsSelectedCurrencyCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B93112A73D3B9003242CD /* SettingsSelectedCurrencyCellViewModel.swift */; };
 		873B93182A73D53C003242CD /* SettingsSelectedCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B93172A73D53C003242CD /* SettingsSelectedCurrencyCell.swift */; };
 		873B931A2A73D766003242CD /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B93192A73D766003242CD /* StorageManager.swift */; };
+		873B931E2A742236003242CD /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B931D2A742236003242CD /* NetworkManagerProtocol.swift */; };
+		873B93222A7423B5003242CD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B93212A7423B5003242CD /* NetworkManager.swift */; };
+		873B93242A742A71003242CD /* CurrentExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B93232A742A71003242CD /* CurrentExchangeRate.swift */; };
+		873B93262A742D75003242CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B93252A742D75003242CD /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +82,10 @@
 		873B93112A73D3B9003242CD /* SettingsSelectedCurrencyCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSelectedCurrencyCellViewModel.swift; sourceTree = "<group>"; };
 		873B93172A73D53C003242CD /* SettingsSelectedCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSelectedCurrencyCell.swift; sourceTree = "<group>"; };
 		873B93192A73D766003242CD /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		873B931D2A742236003242CD /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
+		873B93212A7423B5003242CD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		873B93232A742A71003242CD /* CurrentExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentExchangeRate.swift; sourceTree = "<group>"; };
+		873B93252A742D75003242CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +127,7 @@
 				873B92B72A713661003242CD /* CoreData */,
 				873B92C92A7158FC003242CD /* country_currencies.json */,
 				873B92B12A7134EB003242CD /* Info.plist */,
+				873B93252A742D75003242CD /* Constants.swift */,
 			);
 			path = CurrencyConverterApp;
 			sourceTree = "<group>";
@@ -168,6 +177,7 @@
 			children = (
 				873B92C12A713A23003242CD /* MainTabBarItemModel.swift */,
 				873B92CD2A715C7F003242CD /* CurrencyListModel.swift */,
+				873B93232A742A71003242CD /* CurrentExchangeRate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,12 +185,12 @@
 		873B92D32A719070003242CD /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				873B92D42A7190A4003242CD /* MainTabBarViewModelProtocol.swift */,
-				873B92D62A7191BE003242CD /* CurrencyListViewModelProtocol.swift */,
-				873B92DA2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift */,
+				873B931B2A73EF6F003242CD /* Settings */,
+				873B931F2A74224F003242CD /* MainTabBar */,
+				873B93202A74225B003242CD /* CurrencyList */,
 				873B92E02A727D27003242CD /* SearchableProtocol.swift */,
 				873B92EC2A72A155003242CD /* TableViewModelProtocol.swift */,
-				873B931B2A73EF6F003242CD /* Settings */,
+				873B931D2A742236003242CD /* NetworkManagerProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -189,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				873B93192A73D766003242CD /* StorageManager.swift */,
+				873B93212A7423B5003242CD /* NetworkManager.swift */,
 			);
 			path = ServiseLayer;
 			sourceTree = "<group>";
@@ -292,6 +303,23 @@
 			path = SelectedCurrency;
 			sourceTree = "<group>";
 		};
+		873B931F2A74224F003242CD /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				873B92D42A7190A4003242CD /* MainTabBarViewModelProtocol.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		873B93202A74225B003242CD /* CurrencyList */ = {
+			isa = PBXGroup;
+			children = (
+				873B92D62A7191BE003242CD /* CurrencyListViewModelProtocol.swift */,
+				873B92DA2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift */,
+			);
+			path = CurrencyList;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -364,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B92A12A7134E9003242CD /* AppDelegate.swift in Sources */,
+				873B93262A742D75003242CD /* Constants.swift in Sources */,
 				873B92C62A71405B003242CD /* CurrencyListTableViewController.swift in Sources */,
 				873B92F92A72AA78003242CD /* SettingsTableViewCell.swift in Sources */,
 				873B92C82A7140AB003242CD /* WalletTableViewController.swift in Sources */,
@@ -381,7 +410,9 @@
 				873B92BD2A713791003242CD /* MainTabBarController.swift in Sources */,
 				873B92D52A7190A4003242CD /* MainTabBarViewModelProtocol.swift in Sources */,
 				873B92AB2A7134E9003242CD /* CurrencyConverterApp.xcdatamodeld in Sources */,
+				873B931E2A742236003242CD /* NetworkManagerProtocol.swift in Sources */,
 				873B92ED2A72A155003242CD /* TableViewModelProtocol.swift in Sources */,
+				873B93222A7423B5003242CD /* NetworkManager.swift in Sources */,
 				873B92DB2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift in Sources */,
 				873B92EF2A72A204003242CD /* SettingsViewModel.swift in Sources */,
 				873B92F12A72A2AB003242CD /* SettingsViewModelProtocol.swift in Sources */,
@@ -393,6 +424,7 @@
 				873B92DD2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift in Sources */,
 				873B93182A73D53C003242CD /* SettingsSelectedCurrencyCell.swift in Sources */,
 				873B92E12A727D27003242CD /* SearchableProtocol.swift in Sources */,
+				873B93242A742A71003242CD /* CurrentExchangeRate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
