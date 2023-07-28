@@ -20,7 +20,7 @@ class MainTabBarController: UITabBarController {
         
         let currencyListVC = createViewController(viewController: CurrencyListTableViewController(), tag: 0)
         let walletVC = createViewController(viewController: WalletTableViewController(), tag: 1)
-        let settingsVC = createViewController(viewController: SettingsViewController(), tag: 2)
+        let settingsVC = createViewController(viewController: SettingsTableViewController(), tag: 2)
 
         self.setViewControllers([currencyListVC, walletVC, settingsVC], animated: true)
     }
