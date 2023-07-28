@@ -6,26 +6,27 @@
 //
 
 import UIKit
+import Combine
 
 class SettingsTableViewCell: UITableViewCell {
 
     // MARK: - UI Elements
-    let currencyImageView: UIImageView = {
+    private let currencyImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
     }()
-
-    let selectedCurrencyLabel: UILabel = {
+    
+    private let selectedCurrencyLabel: UILabel = {
         let label = UILabel()
         label.text = "Selected Currency:"
-        label.font = UIFont(name: "Inter", size: 14.0)
+        label.font = UIFont.boldSystemFont(ofSize: 18.0)
         label.textColor = .black
         return label
     }()
-
-    let countryNameLabel: UILabel = {
+    
+    private let countryNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Inter", size: 14.0)
         label.textColor = UIColor(red: 0.79, green: 0.74, blue: 0.74, alpha: 1)
@@ -77,12 +78,24 @@ class SettingsTableViewCell: UITableViewCell {
         contentView.heightAnchor.constraint(equalToConstant: 86).isActive = true
     }
 
-    private func bindViewModel() {
-        guard let viewModel = viewModel else { return }
+    // MARK: - Binding
+    
+    private var cancellables = Set<AnyCancellable>()
 
-        countryNameLabel.text = viewModel.countryName
-        currencyImageView.image = UIImage(named: viewModel.imageName)
+    private func bindViewModel() {
+        viewModel.imageNamePublisher
+            .sink { [weak self] imageName in
+                self?.currencyImageView.image = UIImage(named: imageName)
+            }
+            .store(in: &cancellables)
+
+        viewModel.countryNamePublisher
+            .sink { [weak self] countryName in
+                self?.countryNameLabel.text = countryName
+            }
+            .store(in: &cancellables)
     }
 }
+
 
 

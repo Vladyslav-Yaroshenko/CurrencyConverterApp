@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
-    var viewModel: (any SettingsViewModelProtocol)?
+    var viewModel: SettingsViewModelProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +39,8 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCurrencyTableVC = SelectedCurrencyTableViewController()
+        selectedCurrencyTableVC.settingsCellViewModel = viewModel?.cellViewModel(for: indexPath) as! SettingsCellViewModel
         navigationController?.pushViewController(selectedCurrencyTableVC, animated: true)
-        print(navigationController?.viewControllers.count)
     }
     
     

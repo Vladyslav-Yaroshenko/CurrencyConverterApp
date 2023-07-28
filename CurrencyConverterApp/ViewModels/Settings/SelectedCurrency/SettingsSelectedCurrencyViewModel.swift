@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class SettingsSelectedCurrencyViewModel: SettingsSelectedCurrencyViewModelProtocol {
     
@@ -13,6 +14,7 @@ class SettingsSelectedCurrencyViewModel: SettingsSelectedCurrencyViewModelProtoc
     private var currencies: [SettingsSelectedCurrencyCellViewModelProtocol]?
     
     private var currency = StorageManager.shared.getCurrencies()
+
     
     func cellViewModel(for indexPath: IndexPath) -> SettingsSelectedCurrencyCellViewModelProtocol? {
         let currency = currency[indexPath.row]
@@ -23,11 +25,17 @@ class SettingsSelectedCurrencyViewModel: SettingsSelectedCurrencyViewModelProtoc
         return viewModel
     }
     
-    func bindData() {
-        print("Binding)")
+    func bindData(indexPath: IndexPath, viewModel: SettingsCellViewModel?) {
+        let currency = currency[indexPath.row]
+        let country = StorageManager.shared.getAllData().first(where: {$0.value.currencyCode == currency.currencyCode} )
+        
+        viewModel?.countryName = country?.key ?? "FAIL"
+        
     }
     
     func numberOfRows() -> Int {
         currency.count
     }
+    
 }
+

@@ -26,7 +26,6 @@
 		873B92DD2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92DC2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift */; };
 		873B92DF2A719A8E003242CD /* CurrencyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92DE2A719A8E003242CD /* CurrencyListTableViewCell.swift */; };
 		873B92E12A727D27003242CD /* SearchableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92E02A727D27003242CD /* SearchableProtocol.swift */; };
-		873B92EB2A72A014003242CD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92EA2A72A014003242CD /* Box.swift */; };
 		873B92ED2A72A155003242CD /* TableViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92EC2A72A155003242CD /* TableViewModelProtocol.swift */; };
 		873B92EF2A72A204003242CD /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92EE2A72A204003242CD /* SettingsViewModel.swift */; };
 		873B92F12A72A2AB003242CD /* SettingsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B92F02A72A2AB003242CD /* SettingsViewModelProtocol.swift */; };
@@ -65,7 +64,6 @@
 		873B92DC2A7197F3003242CD /* CurrencyListTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		873B92DE2A719A8E003242CD /* CurrencyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewCell.swift; sourceTree = "<group>"; };
 		873B92E02A727D27003242CD /* SearchableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableProtocol.swift; sourceTree = "<group>"; };
-		873B92EA2A72A014003242CD /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		873B92EC2A72A155003242CD /* TableViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelProtocol.swift; sourceTree = "<group>"; };
 		873B92EE2A72A204003242CD /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		873B92F02A72A2AB003242CD /* SettingsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 				873B92A22A7134E9003242CD /* SceneDelegate.swift */,
 				873B92AC2A7134EB003242CD /* Assets.xcassets */,
 				873B92AE2A7134EB003242CD /* LaunchScreen.storyboard */,
-				873B92EA2A72A014003242CD /* Box.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -183,10 +180,7 @@
 				873B92DA2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift */,
 				873B92E02A727D27003242CD /* SearchableProtocol.swift */,
 				873B92EC2A72A155003242CD /* TableViewModelProtocol.swift */,
-				873B92F02A72A2AB003242CD /* SettingsViewModelProtocol.swift */,
-				873B92F62A72A7B2003242CD /* SettingsCellViewModelProtocol.swift */,
-				873B93092A73CF2A003242CD /* SettingsSelectedCurrencyViewModelProtocol.swift */,
-				873B930B2A73D050003242CD /* SettingsSelectedCurrencyCellViewModelProtocol.swift */,
+				873B931B2A73EF6F003242CD /* Settings */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -279,6 +273,25 @@
 			path = SelectedCurrency;
 			sourceTree = "<group>";
 		};
+		873B931B2A73EF6F003242CD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				873B92F02A72A2AB003242CD /* SettingsViewModelProtocol.swift */,
+				873B92F62A72A7B2003242CD /* SettingsCellViewModelProtocol.swift */,
+				873B931C2A74052C003242CD /* SelectedCurrency */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		873B931C2A74052C003242CD /* SelectedCurrency */ = {
+			isa = PBXGroup;
+			children = (
+				873B93092A73CF2A003242CD /* SettingsSelectedCurrencyViewModelProtocol.swift */,
+				873B930B2A73D050003242CD /* SettingsSelectedCurrencyCellViewModelProtocol.swift */,
+			);
+			path = SelectedCurrency;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -365,7 +378,6 @@
 				873B92CE2A715C7F003242CD /* CurrencyListModel.swift in Sources */,
 				873B92D72A7191BE003242CD /* CurrencyListViewModelProtocol.swift in Sources */,
 				873B92F52A72A783003242CD /* SettingsCellViewModel.swift in Sources */,
-				873B92EB2A72A014003242CD /* Box.swift in Sources */,
 				873B92BD2A713791003242CD /* MainTabBarController.swift in Sources */,
 				873B92D52A7190A4003242CD /* MainTabBarViewModelProtocol.swift in Sources */,
 				873B92AB2A7134E9003242CD /* CurrencyConverterApp.xcdatamodeld in Sources */,

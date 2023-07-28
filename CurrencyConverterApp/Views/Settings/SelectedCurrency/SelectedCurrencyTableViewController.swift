@@ -10,10 +10,15 @@ import UIKit
 class SelectedCurrencyTableViewController: UITableViewController {
 
     var viewModel: SettingsSelectedCurrencyViewModelProtocol?
+    var settingsCellViewModel: SettingsCellViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = "Selected Currency"
+        
         viewModel = SettingsSelectedCurrencyViewModel()
+        
         tableView.register(SettingsSelectedCurrencyCell.self, forCellReuseIdentifier: "SelectedCell")
 
     }
@@ -35,6 +40,10 @@ class SelectedCurrencyTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel?.bindData(indexPath: indexPath, viewModel: settingsCellViewModel)
+        navigationController?.popViewController(animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.

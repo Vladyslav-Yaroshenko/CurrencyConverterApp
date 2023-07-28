@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SettingsViewModelProtocol: ObservableObject {
-    func cellViewModel(for indexPath: IndexPath) -> (any SettingsCellViewModelProtocol)?
+protocol SettingsViewModelProtocol {
+    func cellViewModel(for indexPath: IndexPath) -> SettingsCellViewModelProtocol?
     func numberOfRows() -> Int
 }

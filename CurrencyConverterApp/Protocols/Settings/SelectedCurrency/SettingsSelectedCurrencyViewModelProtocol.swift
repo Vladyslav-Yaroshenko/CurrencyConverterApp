@@ -9,5 +9,5 @@ import Foundation
 
 protocol SettingsSelectedCurrencyViewModelProtocol: TableViewModelProtocol {
     func cellViewModel(for indexPath: IndexPath) -> SettingsSelectedCurrencyCellViewModelProtocol?
-    func bindData()
+    func bindData(indexPath: IndexPath, viewModel: SettingsCellViewModel?)
 }

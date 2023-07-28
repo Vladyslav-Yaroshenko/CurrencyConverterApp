@@ -8,9 +8,10 @@
 import Combine
 
 class SettingsCellViewModel: SettingsCellViewModelProtocol {
+    
     @Published var countryName: String = "Ukraine"
     @Published var imageName: String = "ukraine 1"
-
-    init() {
-    }
+    
+    var countryNamePublisher: Published<String>.Publisher { $countryName }
+    var imageNamePublisher: Published<String>.Publisher { $imageName }
 }
