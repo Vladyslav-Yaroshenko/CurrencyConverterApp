@@ -15,23 +15,14 @@ class CurrencyListViewModel: CurrencyListViewModelProtocol {
     var filteredCurrencies: [Currency]?
     var currencies: [Currency] = []
     var imagesName: [String] = ["ukraine 1"]
+    
+    private var storageManager = StorageManager.shared
 
     init() {
-        fetchDataFromJson()
+        self.currencies = storageManager.getCurrencies()
     }
     
     //MARK: - Functions
-    
-    func fetchDataFromJson() {
-        guard let url = Bundle.main.url(forResource: "country_currencies", withExtension: "json") else { return }
-        do {
-            let jsonData = try Data(contentsOf: url)
-            let countries = try JSONDecoder().decode(Countries.self, from: jsonData)
-            currencies = countries.values.map { $0 }
-        } catch {
-            print("Error parsing JSON: \(error)")
-        }
-    }
     
     func numberOfRows() -> Int {
         return isSearching ? (filteredCurrencies?.count ?? 0) : currencies.count

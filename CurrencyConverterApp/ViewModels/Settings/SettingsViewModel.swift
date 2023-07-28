@@ -10,7 +10,7 @@ import Combine
 
 class SettingsViewModel: SettingsViewModelProtocol {
 
-    @Published private var cellViewModels: [SettingsCellViewModel] = []
+    @Published private var cellViewModels: [any SettingsCellViewModelProtocol] = []
 
     func cellViewModel(for indexPath: IndexPath) -> (any SettingsCellViewModelProtocol)? {
         return cellViewModels[indexPath.row]

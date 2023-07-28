@@ -1,27 +1,25 @@
 //
-//  SettingsTableViewController.swift
+//  SelectedCurrencyTableViewController.swift
 //  CurrencyConverterApp
 //
-//  Created by Vlad on 27.07.2023.
+//  Created by Vlad on 28.07.2023.
 //
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
-    
-    var viewModel: (any SettingsViewModelProtocol)?
-    
+class SelectedCurrencyTableViewController: UITableViewController {
+
+    var viewModel: SettingsSelectedCurrencyViewModelProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel = SettingsViewModel()
-    
-        tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: "SettingsCell")
-        
+        title = "Selected Currency"
+        viewModel = SettingsSelectedCurrencyViewModel()
+        tableView.register(SettingsSelectedCurrencyCell.self, forCellReuseIdentifier: "SelectedCell")
+
     }
 
     // MARK: - Table view data source
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return viewModel?.numberOfRows() ?? 0
@@ -29,21 +27,13 @@ class SettingsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SelectedCell", for: indexPath) as! SettingsSelectedCurrencyCell
         guard let viewModel = viewModel,
               let cellViewModel = viewModel.cellViewModel(for: indexPath)
         else { return UITableViewCell() }
-        cell.viewModel = cellViewModel as? SettingsCellViewModel
+        cell.viewModel = cellViewModel as? SettingsSelectedCurrencyCellViewModel
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCurrencyTableVC = SelectedCurrencyTableViewController()
-        navigationController?.pushViewController(selectedCurrencyTableVC, animated: true)
-        print(navigationController?.viewControllers.count)
-    }
-    
-    
     
 
     /*
