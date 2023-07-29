@@ -7,11 +7,10 @@
 
 import Combine
 
-class SettingsCellViewModel: SettingsCellViewModelProtocol {
-    
+class SettingsCellViewModel: ObservableObject, SettingsCellViewModelProtocol {
     @Published var countryName: String
     @Published var imageName: String
-    
+
     init(countryName: String = "Ukraine", imageName: String = "ukraine 1") {
         self.countryName = countryName
         self.imageName = imageName

@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol TableViewModelProtocol {
+protocol TableViewModelProtocol: AnyObject {
     func numberOfRows() -> Int
 }

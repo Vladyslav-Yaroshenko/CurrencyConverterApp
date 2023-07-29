@@ -5,9 +5,13 @@
 //  Created by Vlad on 27.07.2023.
 //
 
-import UIKit
+import Combine
+import Foundation
 
-protocol SettingsViewModelProtocol {
-    func cellViewModel(for indexPath: IndexPath) -> SettingsCellViewModelProtocol?
+
+protocol SettingsViewModelProtocol: ObservableObject {
     func numberOfRows() -> Int
+    func updateItem(countryName: String)
+    func cellViewModel(for indexPath: IndexPath) -> (any SettingsCellViewModelProtocol)?
 }
+

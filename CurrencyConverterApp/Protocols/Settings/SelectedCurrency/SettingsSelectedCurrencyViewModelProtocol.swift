@@ -7,7 +7,8 @@
 
 import Foundation
 
-protocol SettingsSelectedCurrencyViewModelProtocol: TableViewModelProtocol {
+protocol SettingsSelectedCurrencyViewModelProtocol: AnyObject {
     func cellViewModel(for indexPath: IndexPath) -> SettingsSelectedCurrencyCellViewModelProtocol?
-    func bindData(indexPath: IndexPath, viewModel: SettingsCellViewModel?)
+    func updateSettingsCell(with indexPath: IndexPath, viewModel: any SettingsViewModelProtocol)
+    func numberOfRows() -> Int
 }

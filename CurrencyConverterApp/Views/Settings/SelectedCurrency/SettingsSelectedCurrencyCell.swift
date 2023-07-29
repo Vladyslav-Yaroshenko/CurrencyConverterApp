@@ -39,24 +39,9 @@ class SettingsSelectedCurrencyCell: UITableViewCell {
     }()
     
     // MARK: - ViewModel
-    weak var viewModel: SettingsSelectedCurrencyCellViewModel? {
-        willSet(viewModel) {
-            guard let viewModel = viewModel else { return }
-            currencyImageView.image = UIImage(named: viewModel.imageName)
-            currencyCodeLabel.text = viewModel.currency.currencyCode
-            currencyNameLabel.text = viewModel.currency.currencyName
-            if viewModel.isSelected {
-                isSelectedImageView.image = UIImage(named: "isSelectedTrue")?.withTintColor(UIColor(red: 0,
-                                                                                                    green: 0.69,
-                                                                                                    blue: 0.9,
-                                                                                                    alpha: 1))
-            } else {
-                isSelectedImageView.image = UIImage(named: viewModel.selectedRowImageName)?.withTintColor(UIColor(red: 0.96,
-                                                                                                                  green: 0.96,
-                                                                                                                  blue: 0.96,
-                                                                                                                  alpha: 1))
-            }
-            
+    var viewModel: SettingsSelectedCurrencyCellViewModel? {
+        didSet {
+            updateUI()
         }
     }
 
@@ -70,6 +55,14 @@ class SettingsSelectedCurrencyCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupViews()
+    }
+    
+    private func updateUI() {
+        guard let viewModel = viewModel else { return }
+        currencyImageView.image = UIImage(named: viewModel.imageName)
+        currencyCodeLabel.text = viewModel.currency.currencyCode
+        currencyNameLabel.text = viewModel.currency.currencyName
+        isSelectedImageView.image = UIImage(named: viewModel.isSelected ? "isSelectedTrue" : viewModel.selectedRowImageName)
     }
 
     // MARK: - NSLayoutConstraint

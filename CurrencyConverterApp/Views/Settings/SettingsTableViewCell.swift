@@ -34,7 +34,7 @@ class SettingsTableViewCell: UITableViewCell {
     }()
 
     // MARK: - ViewModel
-    var viewModel: SettingsCellViewModel! {
+    @Published var viewModel: SettingsCellViewModel? {
         didSet {
             bindViewModel()
         }
@@ -97,13 +97,13 @@ class SettingsTableViewCell: UITableViewCell {
 //    }
     
     func bindViewModel() {
-        viewModel.$imageName
+        viewModel?.$imageName
             .sink { [weak self] text in
                 self?.currencyImageView.image = UIImage(named: text)
             }
             .store(in: &cancellables)
         
-        viewModel.$countryName
+        viewModel?.$countryName
             .sink { [weak self] text in
                 self?.countryNameLabel.text = text
             }

@@ -8,8 +8,9 @@
 import Foundation
 
 protocol SettingsSelectedCurrencyCellViewModelProtocol: AnyObject {
-    var imageName: String { get set }
-    var currency: Currency { get set }
-    var isSelected: Bool { get set }
-    var selectedRowImageName: String { get set }
+    var imageName: String { get }
+    var currency: Currency { get }
+    var isSelected: Bool { get }
+    var selectedRowImageName: String { get }
+    var countryName: String { get }
 }

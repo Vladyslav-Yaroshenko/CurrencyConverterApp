@@ -5,21 +5,27 @@
 //  Created by Vlad on 27.07.2023.
 //
 
-import UIKit
 import Combine
+import Foundation
 
-class SettingsViewModel: SettingsViewModelProtocol {
+class SettingsViewModel: SettingsViewModelProtocol, ObservableObject {
 
-    @Published private var cellsViewModels: [SettingsCellViewModelProtocol] = [SettingsCellViewModel()]
-    
-    func cellViewModel(for indexPath: IndexPath) -> SettingsCellViewModelProtocol? {
-        return cellsViewModels[indexPath.row]
-    }
+    @Published private var cellsViewModels: [any SettingsCellViewModelProtocol] = [SettingsCellViewModel()]
 
     func numberOfRows() -> Int {
         return cellsViewModels.count
     }
 
+    func updateItem(countryName: String) {
+        cellsViewModels[0].countryName = countryName
+    }
+
+    func cellViewModel(for indexPath: IndexPath) -> (any SettingsCellViewModelProtocol)? {
+        return cellsViewModels[indexPath.row]
+    }
 }
+
+
+
 
 
