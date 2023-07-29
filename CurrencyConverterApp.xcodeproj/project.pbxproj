@@ -44,6 +44,7 @@
 		873B93222A7423B5003242CD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B93212A7423B5003242CD /* NetworkManager.swift */; };
 		873B93242A742A71003242CD /* CurrentExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B93232A742A71003242CD /* CurrentExchangeRate.swift */; };
 		873B93262A742D75003242CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B93252A742D75003242CD /* Constants.swift */; };
+		873B93282A7534B9003242CD /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B93272A7534B9003242CD /* ViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		873B93212A7423B5003242CD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		873B93232A742A71003242CD /* CurrentExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentExchangeRate.swift; sourceTree = "<group>"; };
 		873B93252A742D75003242CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		873B93272A7534B9003242CD /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				873B92E02A727D27003242CD /* SearchableProtocol.swift */,
 				873B92EC2A72A155003242CD /* TableViewModelProtocol.swift */,
 				873B931D2A742236003242CD /* NetworkManagerProtocol.swift */,
+				873B93272A7534B9003242CD /* ViewProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				873B92A32A7134E9003242CD /* SceneDelegate.swift in Sources */,
 				873B92C22A713A23003242CD /* MainTabBarItemModel.swift in Sources */,
 				873B93062A73C7C1003242CD /* SelectedCurrencyTableViewController.swift in Sources */,
+				873B93282A7534B9003242CD /* ViewProtocol.swift in Sources */,
 				873B92D22A7172AE003242CD /* CurrencyListViewModel.swift in Sources */,
 				873B92C42A713A90003242CD /* MainTabBarViewModel.swift in Sources */,
 				873B92CE2A715C7F003242CD /* CurrencyListModel.swift in Sources */,

@@ -10,6 +10,8 @@ import Foundation
 class CurrencyListViewModel: CurrencyListViewModelProtocol {
     
     //MARK: - Variables
+    private let storageManager = StorageManager.shared
+    private let networkManager = NetworkManager()
     
     var isSearching: Bool = false
     var filteredCurrencies: [Currency]?
@@ -17,12 +19,12 @@ class CurrencyListViewModel: CurrencyListViewModelProtocol {
     var imagesName: [String] = ["ukraine 1"]
     var currentExchangeRates: CurrentExchangeRate?
     
-    private var storageManager = StorageManager.shared
-    private var networkManager = NetworkManager()
-
+    typealias CurrentExchangeRatesCompletion = (CurrentExchangeRate?) -> Void
+    
+    //MARK: - Initialization
+    
     init() {
-        self.currencies = storageManager.getCurrencies()
-        getCurrentExchangeRates(with: "UAH")
+        currencies = storageManager.getCurrencies()
     }
     
     //MARK: - Functions
@@ -32,48 +34,54 @@ class CurrencyListViewModel: CurrencyListViewModelProtocol {
     }
     
     func cellViewModel(for indexPath: IndexPath) -> CurrencyListTableViewCellViewModelProtocol? {
-        var currency: Currency
+        guard let currentExchangeRates = currentExchangeRates else { return nil }
         
-        
+        let currency: Currency
         if isSearching, let filteredCurrencies = filteredCurrencies {
             currency = filteredCurrencies[indexPath.row]
         } else {
             currency = currencies[indexPath.row]
         }
         
+        let amount = currentExchangeRates.conversionRates[currency.currencyCode] ?? 0.0
+        
         return CurrencyListTableViewCellViewModel(currency: currency,
                                                   imageName: "ukraine 1",
-                                                  amountOfMoney: "11",
-                                                  currencyСonversionСode: "USD")
+                                                  amountOfMoney: String(amount),
+                                                  currencyСonversionСode: currentExchangeRates.baseCode)
     }
-
+    
     func searchCurrencies(with searchText: String) {
         if searchText.isEmpty {
             isSearching = false
-            filteredCurrencies = []
+            filteredCurrencies = nil
         } else {
             isSearching = true
             filteredCurrencies = currencies.filter { $0.currencyCode.lowercased().contains(searchText.lowercased()) }
         }
     }
     
-    func getCurrentExchangeRates(with currency: String) {
+    func getCurrentExchangeRates(with currency: String, completion: @escaping CurrentExchangeRatesCompletion) {
         let urlString = getCurrentExchangeRate + currency
-        guard let url = URL(string: urlString) else { return }
+        guard let url = URL(string: urlString) else {
+            completion(nil) // Notify that there was an issue with the URL
+            return
+        }
         
-        print(url.absoluteString)
-        
-        networkManager.downloadJSON(from: url) { response in
+        networkManager.downloadJSON(from: url) { [weak self] response in
             switch response {
             case .success(let data):
-                do {
-                    let currentExchangeRates = try? JSONDecoder().decode(CurrentExchangeRate.self, from: data)
-                    self.currentExchangeRates = currentExchangeRates
-                    
-                    
+                let currentExchangeRates = try? JSONDecoder().decode(CurrentExchangeRate.self, from: data)
+                self?.currentExchangeRates = currentExchangeRates
+                DispatchQueue.main.async {
+                    completion(currentExchangeRates) // Notify the caller with the data
                 }
+                
             case .failure(let error):
                 print("CASE .failure = \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    completion(nil) // Notify the caller that the request failed
+                }
             }
         }
     }

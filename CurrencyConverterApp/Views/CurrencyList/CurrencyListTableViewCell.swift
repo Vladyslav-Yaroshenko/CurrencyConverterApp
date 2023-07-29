@@ -14,6 +14,7 @@ class CurrencyListTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
@@ -21,6 +22,7 @@ class CurrencyListTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Inter", size: 14.0)
         label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
@@ -28,6 +30,7 @@ class CurrencyListTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Inter", size: 14.0)
         label.textColor = UIColor(red: 0.79, green: 0.74, blue: 0.74, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -35,6 +38,7 @@ class CurrencyListTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Inter", size: 14.0)
         label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -44,7 +48,13 @@ class CurrencyListTableViewCell: UITableViewCell {
             currencyImageView.image = UIImage(named: viewModel?.imageName ?? "")
             currencyCodeLabel.text = viewModel?.currencyCode
             currencyNameLabel.text = viewModel?.currencyName
-            currencyConversionLabel.text = (viewModel?.amountOfMoney ?? "") + " " + (viewModel?.currencyСonversionСode ?? "")
+
+            // Format the double to display two decimal places
+            if let amountOfMoney = viewModel?.amountOfMoney, let amountValue = Double(amountOfMoney) {
+                currencyConversionLabel.text = String(format: "%.2f", amountValue) + " " + (viewModel?.currencyСonversionСode ?? "")
+            } else {
+                currencyConversionLabel.text = ""
+            }
         }
     }
 
@@ -67,11 +77,6 @@ class CurrencyListTableViewCell: UITableViewCell {
         contentView.addSubview(currencyNameLabel)
         contentView.addSubview(currencyConversionLabel)
 
-        currencyImageView.translatesAutoresizingMaskIntoConstraints = false
-        currencyCodeLabel.translatesAutoresizingMaskIntoConstraints = false
-        currencyNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        currencyConversionLabel.translatesAutoresizingMaskIntoConstraints = false
-
         NSLayoutConstraint.activate([
             
             currencyImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 17),
@@ -88,7 +93,9 @@ class CurrencyListTableViewCell: UITableViewCell {
             currencyNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             
             currencyConversionLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            currencyConversionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -17)
+            currencyConversionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -17),
+            
+            
         ])
     }
 }

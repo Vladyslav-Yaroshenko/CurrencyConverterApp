@@ -25,6 +25,10 @@ class CurrencyListTableViewController: UITableViewController {
         
         viewModel = CurrencyListViewModel()
         
+        viewModel?.getCurrentExchangeRates(with: "USD", completion: { rate in
+            self.tableView.reloadData()
+        })
+        
         self.navigationItem.rightBarButtonItem = barButtonItem
         barButtonItem.target = self
         barButtonItem.action = #selector(didTapSearchBar)
