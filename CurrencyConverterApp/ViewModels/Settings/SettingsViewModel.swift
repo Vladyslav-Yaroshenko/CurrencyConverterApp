@@ -10,14 +10,14 @@ import Combine
 
 class SettingsViewModel: SettingsViewModelProtocol {
 
-    private var cellViewModels: [SettingsCellViewModelProtocol] = [SettingsCellViewModel()]
+    @Published private var cellsViewModels: [SettingsCellViewModelProtocol] = [SettingsCellViewModel()]
     
     func cellViewModel(for indexPath: IndexPath) -> SettingsCellViewModelProtocol? {
-        return cellViewModels[indexPath.row]
+        return cellsViewModels[indexPath.row]
     }
 
     func numberOfRows() -> Int {
-        return cellViewModels.count
+        return cellsViewModels.count
     }
 
 }

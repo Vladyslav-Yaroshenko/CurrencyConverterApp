@@ -9,6 +9,6 @@ import UIKit
 //import Combine
 
 protocol SettingsCellViewModelProtocol {
-    var countryNamePublisher: Published<String>.Publisher { get }
-    var imageNamePublisher: Published<String>.Publisher { get }
+    var countryName: String { get }
+    var imageName: String { get }
 }

@@ -82,19 +82,35 @@ class SettingsTableViewCell: UITableViewCell {
     
     private var cancellables = Set<AnyCancellable>()
 
-    private func bindViewModel() {
-        viewModel.imageNamePublisher
-            .sink { [weak self] imageName in
-                self?.currencyImageView.image = UIImage(named: imageName)
+//    private func bindViewModel() {
+//        viewModel.imageNamePublisher
+//            .sink { [weak self] imageName in
+//                self?.currencyImageView.image = UIImage(named: imageName)
+//            }
+//            .store(in: &cancellables)
+//
+//        viewModel.countryNamePublisher
+//            .sink { [weak self] countryName in
+//                self?.countryNameLabel.text = countryName
+//            }
+//            .store(in: &cancellables)
+//    }
+    
+    func bindViewModel() {
+        viewModel.$imageName
+            .sink { [weak self] text in
+                self?.currencyImageView.image = UIImage(named: text)
             }
             .store(in: &cancellables)
-
-        viewModel.countryNamePublisher
-            .sink { [weak self] countryName in
-                self?.countryNameLabel.text = countryName
+        
+        viewModel.$countryName
+            .sink { [weak self] text in
+                self?.countryNameLabel.text = text
             }
             .store(in: &cancellables)
     }
+    
+    
 }
 
 
