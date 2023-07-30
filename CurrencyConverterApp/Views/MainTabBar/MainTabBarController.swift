@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class MainTabBarController: UITabBarController {
 
@@ -19,7 +20,7 @@ class MainTabBarController: UITabBarController {
     private func setupTabBarController() {
         
         let currencyListVC = createViewController(viewController: CurrencyListTableViewController(), tag: 0)
-        let walletVC = createViewController(viewController: WalletTableViewController(), tag: 1)
+        let walletVC = createSwiftUIController(someView: WalletView(), tag: 1)
         let settingsVC = createViewController(viewController: SettingsTableViewController(), tag: 2)
 
         self.setViewControllers([currencyListVC, walletVC, settingsVC], animated: true)
@@ -31,6 +32,12 @@ class MainTabBarController: UITabBarController {
         navigationVC.tabBarItem.image = UIImage(named: viewModel.tabBarItems[tag].imageName)
         navigationVC.viewControllers.first?.navigationItem.title = viewModel.tabBarItems[tag].title
         return navigationVC
+    }
+    
+    private func createSwiftUIController(someView: some View, tag: Int) -> UIViewController {
+        let hostingController = UIHostingController(rootView: someView)
+        hostingController.tabBarItem.image = UIImage(named: viewModel.tabBarItems[tag].imageName)
+        return hostingController
     }
    
 }
