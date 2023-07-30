@@ -107,6 +107,7 @@ class CurrencyListTableViewController: UITableViewController, NetworkViewProtoco
         } else if navigationItem.searchController == nil {
             navigationItem.searchController = searchController
         }
+        searchController?.becomeFirstResponder()
     }
     
     
@@ -122,6 +123,10 @@ class CurrencyListTableViewController: UITableViewController, NetworkViewProtoco
         else { return UITableViewCell() }
         cell.viewModel = cellViewModel
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
     }
 }
 
