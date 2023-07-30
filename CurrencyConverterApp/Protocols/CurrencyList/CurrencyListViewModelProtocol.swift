@@ -9,6 +9,6 @@ import Foundation
 
 protocol CurrencyListViewModelProtocol: SearchableProtocol, TableViewModelProtocol {
     func cellViewModel(for indexPath: IndexPath) -> CurrencyListTableViewCellViewModelProtocol?
-    typealias CurrentExchangeRatesCompletion = (CurrentExchangeRate?) -> Void
-    func getCurrentExchangeRates(with currency: String, completion: @escaping CurrentExchangeRatesCompletion)
+    func getCurrentExchangeRates(with currency: String, completion: @escaping (ResponseFromServer) -> Void)
+    func getCurrencies()
 }

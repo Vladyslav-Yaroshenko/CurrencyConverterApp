@@ -44,7 +44,8 @@
 		873B93222A7423B5003242CD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B93212A7423B5003242CD /* NetworkManager.swift */; };
 		873B93242A742A71003242CD /* CurrentExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B93232A742A71003242CD /* CurrentExchangeRate.swift */; };
 		873B93262A742D75003242CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B93252A742D75003242CD /* Constants.swift */; };
-		873B93282A7534B9003242CD /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B93272A7534B9003242CD /* ViewProtocol.swift */; };
+		878C252F2A7685AC003F2DC6 /* NetworkViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C252E2A7685AC003F2DC6 /* NetworkViewProtocol.swift */; };
+		8791DED92A755BA0001B6654 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8791DED82A755BA0001B6654 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,7 +88,8 @@
 		873B93212A7423B5003242CD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		873B93232A742A71003242CD /* CurrentExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentExchangeRate.swift; sourceTree = "<group>"; };
 		873B93252A742D75003242CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		873B93272A7534B9003242CD /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
+		878C252E2A7685AC003F2DC6 /* NetworkViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewProtocol.swift; sourceTree = "<group>"; };
+		8791DED82A755BA0001B6654 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +195,7 @@
 				873B92E02A727D27003242CD /* SearchableProtocol.swift */,
 				873B92EC2A72A155003242CD /* TableViewModelProtocol.swift */,
 				873B931D2A742236003242CD /* NetworkManagerProtocol.swift */,
-				873B93272A7534B9003242CD /* ViewProtocol.swift */,
+				878C252E2A7685AC003F2DC6 /* NetworkViewProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -220,6 +222,7 @@
 			children = (
 				873B92C52A71405B003242CD /* CurrencyListTableViewController.swift */,
 				873B92DE2A719A8E003242CD /* CurrencyListTableViewCell.swift */,
+				8791DED82A755BA0001B6654 /* ErrorView.swift */,
 			);
 			path = CurrencyList;
 			sourceTree = "<group>";
@@ -401,11 +404,11 @@
 				873B92C82A7140AB003242CD /* WalletTableViewController.swift in Sources */,
 				873B93122A73D3B9003242CD /* SettingsSelectedCurrencyCellViewModel.swift in Sources */,
 				873B92F72A72A7B2003242CD /* SettingsCellViewModelProtocol.swift in Sources */,
+				8791DED92A755BA0001B6654 /* ErrorView.swift in Sources */,
 				873B930A2A73CF2A003242CD /* SettingsSelectedCurrencyViewModelProtocol.swift in Sources */,
 				873B92A32A7134E9003242CD /* SceneDelegate.swift in Sources */,
 				873B92C22A713A23003242CD /* MainTabBarItemModel.swift in Sources */,
 				873B93062A73C7C1003242CD /* SelectedCurrencyTableViewController.swift in Sources */,
-				873B93282A7534B9003242CD /* ViewProtocol.swift in Sources */,
 				873B92D22A7172AE003242CD /* CurrencyListViewModel.swift in Sources */,
 				873B92C42A713A90003242CD /* MainTabBarViewModel.swift in Sources */,
 				873B92CE2A715C7F003242CD /* CurrencyListModel.swift in Sources */,
@@ -417,6 +420,7 @@
 				873B931E2A742236003242CD /* NetworkManagerProtocol.swift in Sources */,
 				873B92ED2A72A155003242CD /* TableViewModelProtocol.swift in Sources */,
 				873B93222A7423B5003242CD /* NetworkManager.swift in Sources */,
+				878C252F2A7685AC003F2DC6 /* NetworkViewProtocol.swift in Sources */,
 				873B92DB2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift in Sources */,
 				873B92EF2A72A204003242CD /* SettingsViewModel.swift in Sources */,
 				873B92F12A72A2AB003242CD /* SettingsViewModelProtocol.swift in Sources */,

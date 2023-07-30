@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum ResponseFromServer {
+    case success
+    case failure
+}
+
 class CurrencyListViewModel: CurrencyListViewModelProtocol {
     
     //MARK: - Variables
@@ -19,12 +24,12 @@ class CurrencyListViewModel: CurrencyListViewModelProtocol {
     var imagesName: [String] = ["ukraine 1"]
     var currentExchangeRates: CurrentExchangeRate?
     
-    typealias CurrentExchangeRatesCompletion = (CurrentExchangeRate?) -> Void
+    typealias CurrentExchangeRatesCompletion = (ResponseFromServer) -> Void
     
     //MARK: - Initialization
     
     init() {
-        currencies = storageManager.getCurrencies()
+        
     }
     
     //MARK: - Functions
@@ -61,10 +66,10 @@ class CurrencyListViewModel: CurrencyListViewModelProtocol {
         }
     }
     
-    func getCurrentExchangeRates(with currency: String, completion: @escaping CurrentExchangeRatesCompletion) {
+    func getCurrentExchangeRates(with currency: String, completion: @escaping (ResponseFromServer) -> Void) {
         let urlString = getCurrentExchangeRate + currency
         guard let url = URL(string: urlString) else {
-            completion(nil) // Notify that there was an issue with the URL
+            completion(.failure) // Notify that there was an issue with the URL
             return
         }
         
@@ -74,15 +79,20 @@ class CurrencyListViewModel: CurrencyListViewModelProtocol {
                 let currentExchangeRates = try? JSONDecoder().decode(CurrentExchangeRate.self, from: data)
                 self?.currentExchangeRates = currentExchangeRates
                 DispatchQueue.main.async {
-                    completion(currentExchangeRates) // Notify the caller with the data
+                    completion(.success)
                 }
+                
                 
             case .failure(let error):
                 print("CASE .failure = \(error.localizedDescription)")
                 DispatchQueue.main.async {
-                    completion(nil) // Notify the caller that the request failed
+                    completion(.failure)
                 }
             }
         }
+    }
+    
+    func getCurrencies() {
+        currencies = storageManager.getCurrencies()
     }
 }

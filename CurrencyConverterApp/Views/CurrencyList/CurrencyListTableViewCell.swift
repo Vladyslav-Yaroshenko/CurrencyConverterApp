@@ -94,8 +94,6 @@ class CurrencyListTableViewCell: UITableViewCell {
             
             currencyConversionLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             currencyConversionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -17),
-            
-            
         ])
     }
 }
