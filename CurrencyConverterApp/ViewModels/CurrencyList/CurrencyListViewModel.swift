@@ -66,8 +66,8 @@ class CurrencyListViewModel: CurrencyListViewModelProtocol {
         }
     }
     
-    func getCurrentExchangeRates(with currency: String, completion: @escaping (ResponseFromServer) -> Void) {
-        let urlString = getCurrentExchangeRate + currency
+    func getCurrentExchangeRates(completion: @escaping (ResponseFromServer) -> Void) {
+        let urlString = getCurrentExchangeRate + storageManager.defaultCurrencies
         guard let url = URL(string: urlString) else {
             completion(.failure) // Notify that there was an issue with the URL
             return

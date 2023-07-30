@@ -11,6 +11,7 @@ class StorageManager {
     public static let shared = StorageManager()
     
     private var currencies = [String: Currency]()
+    public var defaultCurrencies = "UAH"
     
     private init() {
         fetchDataFromJson()
@@ -34,4 +35,6 @@ class StorageManager {
     public func getAllData() -> [String: Currency] {
         return currencies
     }
+    
+    
 }

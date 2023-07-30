@@ -8,7 +8,11 @@
 import UIKit
 
 
-class CurrencyListTableViewController: UITableViewController, NetworkViewProtocol {
+class CurrencyListTableViewController: UITableViewController, NetworkViewProtocol, TableViewDelegate {
+   
+    
+    var selectedSettingsViewModel = SettingsSelectedCurrencyViewModel()
+
     
     let barButtonItem: UIBarButtonItem = {
         let barButton = UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: nil)
@@ -20,11 +24,31 @@ class CurrencyListTableViewController: UITableViewController, NetworkViewProtoco
     var viewModel: CurrencyListViewModelProtocol?
     var searchController: UISearchController?
     
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel = CurrencyListViewModel()
-        viewModel?.getCurrentExchangeRates(with: "USD", completion: { result in
+        getData()
+        
+        
+        
+        self.navigationItem.rightBarButtonItem = barButtonItem
+        barButtonItem.target = self
+        barButtonItem.action = #selector(didTapSearchBar)
+        tableView.register(CurrencyListTableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        
+    }
+    
+    func updateUI() {
+        self.getData()
+    }
+    
+    
+    private func getData() {
+        viewModel?.getCurrentExchangeRates(completion: { result in
             switch result {
             case.success:
                 self.success()
@@ -32,11 +56,6 @@ class CurrencyListTableViewController: UITableViewController, NetworkViewProtoco
                 self.failure()
             }
         })
-        
-        self.navigationItem.rightBarButtonItem = barButtonItem
-        barButtonItem.target = self
-        barButtonItem.action = #selector(didTapSearchBar)
-        tableView.register(CurrencyListTableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
     func success() {
@@ -69,7 +88,7 @@ class CurrencyListTableViewController: UITableViewController, NetworkViewProtoco
     
     
     @objc func didTapRetryButton() {
-        viewModel?.getCurrentExchangeRates(with: "USD", completion: { response in
+        viewModel?.getCurrentExchangeRates(completion: { response in
             switch response {
             case .success:
                 self.success()

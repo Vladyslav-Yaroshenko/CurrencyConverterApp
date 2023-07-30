@@ -40,6 +40,6 @@ class SelectedCurrencyTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let settingsViewModel = settingsViewModel else { return }
         viewModel?.updateSettingsCell(with: indexPath, viewModel: settingsViewModel)
-                navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 }
