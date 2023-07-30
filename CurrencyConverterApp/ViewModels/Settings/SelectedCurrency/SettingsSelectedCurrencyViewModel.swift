@@ -8,16 +8,9 @@
 import Combine
 import Foundation
 
-
-protocol TableViewDelegate: AnyObject {
-    func updateUI()
-}
-
 class SettingsSelectedCurrencyViewModel: SettingsSelectedCurrencyViewModelProtocol {
-
     
-    weak var delegate: TableViewDelegate?
-    
+    let didChangeDefaultCurrency = PassthroughSubject<Void, Never>()
     
     private var currencies: [SettingsSelectedCurrencyCellViewModel] = {
         var currencies = [SettingsSelectedCurrencyCellViewModel]()
@@ -33,21 +26,20 @@ class SettingsSelectedCurrencyViewModel: SettingsSelectedCurrencyViewModelProtoc
         }
         return currencies
     }()
-
+    
     func cellViewModel(for indexPath: IndexPath) -> SettingsSelectedCurrencyCellViewModelProtocol? {
         return currencies[indexPath.row]
     }
-
+    
     func numberOfRows() -> Int {
         return currencies.count
     }
-
+    
     func updateSettingsCell(with indexPath: IndexPath, viewModel: any SettingsViewModelProtocol) {
         guard let selectedViewModel = cellViewModel(for: indexPath) else { return }
         viewModel.updateItem(countryName: selectedViewModel.countryName)
         StorageManager.shared.defaultCurrencies = selectedViewModel.currency.currencyCode
-        print(StorageManager.shared.defaultCurrencies)
-        delegate?.updateUI()
+        didChangeDefaultCurrency.send()
     }
 }
 

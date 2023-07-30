@@ -6,13 +6,13 @@
 //
 
 import UIKit
+import Combine
 
-
-class CurrencyListTableViewController: UITableViewController, NetworkViewProtocol, TableViewDelegate {
+class CurrencyListTableViewController: UITableViewController, NetworkViewProtocol {
    
-    
-    var selectedSettingsViewModel = SettingsSelectedCurrencyViewModel()
+    private var cancellables: [AnyCancellable] = []
 
+    var selectedSettingsViewModel = SettingsSelectedCurrencyViewModel()
     
     let barButtonItem: UIBarButtonItem = {
         let barButton = UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: nil)
@@ -24,7 +24,6 @@ class CurrencyListTableViewController: UITableViewController, NetworkViewProtoco
     var viewModel: CurrencyListViewModelProtocol?
     var searchController: UISearchController?
     
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,21 +31,26 @@ class CurrencyListTableViewController: UITableViewController, NetworkViewProtoco
         viewModel = CurrencyListViewModel()
         getData()
         
-        
-        
         self.navigationItem.rightBarButtonItem = barButtonItem
         barButtonItem.target = self
         barButtonItem.action = #selector(didTapSearchBar)
         tableView.register(CurrencyListTableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        
+        selectedSettingsViewModel.didChangeDefaultCurrency.sink { [weak self] _ in
+                    self?.getData()
+                }.store(in: &cancellables)
     }
     
-    func updateUI() {
-        self.getData()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let needToGetData = viewModel?.isCurrencyChanged() else { return }
+        if needToGetData {
+            getData()
+        }
     }
     
     
+
     private func getData() {
         viewModel?.getCurrentExchangeRates(completion: { result in
             switch result {
@@ -88,14 +92,7 @@ class CurrencyListTableViewController: UITableViewController, NetworkViewProtoco
     
     
     @objc func didTapRetryButton() {
-        viewModel?.getCurrentExchangeRates(completion: { response in
-            switch response {
-            case .success:
-                self.success()
-            case .failure:
-                self.failure()
-            }
-        })
+        getData()
     }
    
     
@@ -115,7 +112,6 @@ class CurrencyListTableViewController: UITableViewController, NetworkViewProtoco
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return viewModel?.numberOfRows() ?? 0
     }
     

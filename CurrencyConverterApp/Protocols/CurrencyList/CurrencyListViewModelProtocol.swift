@@ -11,4 +11,5 @@ protocol CurrencyListViewModelProtocol: SearchableProtocol, TableViewModelProtoc
     func cellViewModel(for indexPath: IndexPath) -> CurrencyListTableViewCellViewModelProtocol?
     func getCurrentExchangeRates(completion: @escaping (ResponseFromServer) -> Void)
     func getCurrencies()
+    func isCurrencyChanged() -> Bool
 }

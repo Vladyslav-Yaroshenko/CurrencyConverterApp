@@ -13,10 +13,20 @@ enum ResponseFromServer {
 }
 
 class CurrencyListViewModel: CurrencyListViewModelProtocol {
+    func isCurrencyChanged() -> Bool {
+        if currentCurrency == storageManager.defaultCurrencies {
+            return false
+        } else {
+            currentCurrency = storageManager.defaultCurrencies
+            return true
+        }
+    }
+    
     
     //MARK: - Variables
     private let storageManager = StorageManager.shared
     private let networkManager = NetworkManager()
+    private var currentCurrency: String = ""
     
     var isSearching: Bool = false
     var filteredCurrencies: [Currency]?
@@ -94,5 +104,6 @@ class CurrencyListViewModel: CurrencyListViewModelProtocol {
     
     func getCurrencies() {
         currencies = storageManager.getCurrencies()
+        currentCurrency = storageManager.defaultCurrencies
     }
 }
