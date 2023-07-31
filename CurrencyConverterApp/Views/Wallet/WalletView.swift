@@ -8,12 +8,24 @@
 import SwiftUI
 
 struct WalletView: View {
+    
     var body: some View {
-        Text("This is the Wallet View")
+        NavigationView {
+            List {
+                WalletCellSwiftUIView()
+                WalletCellSwiftUIView()
+                WalletCellSwiftUIView()
+            }
+            .navigationTitle(Text("Wallet"))
+            .navigationBarTitleDisplayMode(.inline)
+            
+        }
+        
     }
 }
+    
 
-struct WalletView_Previews: PreviewProvider {
+struct CustomListView_Previews: PreviewProvider {
     static var previews: some View {
         WalletView()
     }
