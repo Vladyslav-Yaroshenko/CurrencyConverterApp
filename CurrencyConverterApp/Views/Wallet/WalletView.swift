@@ -35,6 +35,7 @@ struct WalletView: View {
                     WalletCellSwiftUIView()
                     WalletCellSwiftUIView()
                     WalletCellSwiftUIView()
+                    WalletCellSwiftUIView()
                 }
                 .listStyle(.plain)
                 
@@ -44,7 +45,7 @@ struct WalletView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        print("Add")
+                        print("search")
                     }) {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(Color(red: 0.85,

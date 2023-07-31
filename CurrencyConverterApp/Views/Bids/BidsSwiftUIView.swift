@@ -9,7 +9,40 @@ import SwiftUI
 
 struct BidsSwiftUIView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                BidsCellSwiftUIView()
+                BidsCellSwiftUIView()
+                BidsCellSwiftUIView()
+            }
+            .listStyle(.plain)
+            
+            .navigationTitle(Text("Bids"))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        print("search")
+                    }) {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(Color(red: 0.85,
+                                                   green: 0.85,
+                                                   blue: 0.85))
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        print("Add")
+                    }) {
+                        Image(systemName: "plus")
+                            .foregroundColor(Color(red: 0.85,
+                                                   green: 0.85,
+                                                   blue: 0.85))
+                    }
+                }
+            }
+        }
+        
     }
 }
 

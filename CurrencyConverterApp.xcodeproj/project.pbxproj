@@ -49,6 +49,7 @@
 		878C253D2A77D17A003F2DC6 /* WalletCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C253C2A77D17A003F2DC6 /* WalletCellModel.swift */; };
 		878C25402A77D9E8003F2DC6 /* WalletCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C253F2A77D9E8003F2DC6 /* WalletCellViewModel.swift */; };
 		878C25452A77F758003F2DC6 /* BidsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C25442A77F758003F2DC6 /* BidsSwiftUIView.swift */; };
+		878C25472A77F92C003F2DC6 /* BidsCellSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C25462A77F92C003F2DC6 /* BidsCellSwiftUIView.swift */; };
 		8791DED92A755BA0001B6654 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8791DED82A755BA0001B6654 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		878C253C2A77D17A003F2DC6 /* WalletCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCellModel.swift; sourceTree = "<group>"; };
 		878C253F2A77D9E8003F2DC6 /* WalletCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCellViewModel.swift; sourceTree = "<group>"; };
 		878C25442A77F758003F2DC6 /* BidsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidsSwiftUIView.swift; sourceTree = "<group>"; };
+		878C25462A77F92C003F2DC6 /* BidsCellSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidsCellSwiftUIView.swift; sourceTree = "<group>"; };
 		8791DED82A755BA0001B6654 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -350,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				878C25442A77F758003F2DC6 /* BidsSwiftUIView.swift */,
+				878C25462A77F92C003F2DC6 /* BidsCellSwiftUIView.swift */,
 			);
 			path = Bids;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				873B930A2A73CF2A003242CD /* SettingsSelectedCurrencyViewModelProtocol.swift in Sources */,
 				873B92A32A7134E9003242CD /* SceneDelegate.swift in Sources */,
 				873B92C22A713A23003242CD /* MainTabBarItemModel.swift in Sources */,
+				878C25472A77F92C003F2DC6 /* BidsCellSwiftUIView.swift in Sources */,
 				873B93062A73C7C1003242CD /* SelectedCurrencyTableViewController.swift in Sources */,
 				878C25372A76BB73003F2DC6 /* WalletView.swift in Sources */,
 				873B92D22A7172AE003242CD /* CurrencyListViewModel.swift in Sources */,
