@@ -22,7 +22,7 @@ struct BidsSwiftUIView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        print("search")
+                        print("search bids")
                     }) {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(Color(red: 0.85,
@@ -30,10 +30,11 @@ struct BidsSwiftUIView: View {
                                                    blue: 0.85))
                     }
                 }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        print("Add")
-                    }) {
+                    NavigationLink {
+                        AddBidSwiftUIView()
+                    } label: {
                         Image(systemName: "plus")
                             .foregroundColor(Color(red: 0.85,
                                                    green: 0.85,
@@ -42,7 +43,6 @@ struct BidsSwiftUIView: View {
                 }
             }
         }
-        
     }
 }
 
