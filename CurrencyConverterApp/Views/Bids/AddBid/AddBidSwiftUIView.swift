@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import Combine
 
 struct AddBidSwiftUIView: View {
     
     @Environment(\.presentationMode) private var presentationMode
     @State private var textFieldValue = ""
     @State private var textLabel = "Bid value"
+    @State private var buttonBackgroundColor = Color(red: 0.80, green: 0.8, blue: 0.80)
+    
     
     var body: some View {
         NavigationView {
@@ -45,9 +48,17 @@ struct AddBidSwiftUIView: View {
                         .padding(.horizontal, 110)
                         .padding(.vertical, 10)
                         .foregroundColor(.white)
-                        .background(Color(red: 0.80, green: 0.8, blue: 0.80))
+                        .background(buttonBackgroundColor)
                         .cornerRadius(8)
                 }
+                .onChange(of: textFieldValue) { _ in
+                    if textFieldValue != "" {
+                        buttonBackgroundColor = .blue
+                    } else {
+                        buttonBackgroundColor = Color(red: 0.80, green: 0.8, blue: 0.80)
+                    }
+                }
+                Spacer()
             }
         }
         .navigationBarTitleDisplayMode(.inline)
