@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WalletCellSwiftUIView: View {
+    
     var body: some View {
         HStack {
             Image("ukraine 1")
@@ -22,20 +23,24 @@ struct WalletCellSwiftUIView: View {
                     )
                     .foregroundColor(.black)
                 
-                
-                Text("$1970.64")
+                Text("1970.64 UAH")
                     .font(
                         Font.custom("Inter", size: 16)
                             .weight(.medium)
                     )
                     .foregroundColor(Color(red: 0.79, green: 0.74, blue: 0.74))
-                    .frame(width: 72, alignment: .leading)
-                
-                
+                    .frame(alignment: .leading)
             })
             Spacer()
-            Text("1500.00")
+            Text("1.500.00 USD")
+                .font(
+                    Font.custom("Inter", size: 20)
+                        .weight(.medium)
+                )
+                .multilineTextAlignment(.trailing)
+                .foregroundColor(.black)
         }
+        .frame(height: 100)
     }
 }
 

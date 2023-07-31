@@ -39,6 +39,7 @@ class CurrencyListTableViewController: UITableViewController, NetworkViewProtoco
         selectedSettingsViewModel.didChangeDefaultCurrency.sink { [weak self] _ in
                     self?.getData()
                 }.store(in: &cancellables)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

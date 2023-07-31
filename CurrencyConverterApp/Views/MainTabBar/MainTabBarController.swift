@@ -10,34 +10,26 @@ import SwiftUI
 
 class MainTabBarController: UITabBarController {
 
-    private let viewModel = MainTabBarViewModel()
+    private var viewModel: MainTabBarViewModelProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel = MainTabBarViewModel()
         setupTabBarController()
     }
     
     private func setupTabBarController() {
+        guard let viewModel = viewModel else { return }
         
-        let currencyListVC = createViewController(viewController: CurrencyListTableViewController(), tag: 0)
-        let walletVC = createSwiftUIController(someView: WalletView(), tag: 1)
-        let settingsVC = createViewController(viewController: SettingsTableViewController(), tag: 2)
+        let currencyListVC = viewModel.createViewController(viewController: CurrencyListTableViewController(), tag: .currencyList)
+        let walletVC = viewModel.createSwiftUIController(someView: WalletView(), tag: .wallet)
+        let settingsVC = viewModel.createViewController(viewController: SettingsTableViewController(), tag: .settings)
+        let bidsVC = viewModel.createSwiftUIController(someView: BidsSwiftUIView(), tag: .bids)
 
-        self.setViewControllers([currencyListVC, walletVC, settingsVC], animated: true)
+        self.setViewControllers([currencyListVC, walletVC, bidsVC, settingsVC], animated: true)
     }
     
-    private func createViewController(viewController: UIViewController, tag: Int) -> UIViewController {
-        let navigationVC = UINavigationController(rootViewController: viewController)
-        
-        navigationVC.tabBarItem.image = UIImage(named: viewModel.tabBarItems[tag].imageName)
-        navigationVC.viewControllers.first?.navigationItem.title = viewModel.tabBarItems[tag].title
-        return navigationVC
-    }
     
-    private func createSwiftUIController(someView: some View, tag: Int) -> UIViewController {
-        let hostingController = UIHostingController(rootView: someView)
-        hostingController.tabBarItem.image = UIImage(named: viewModel.tabBarItems[tag].imageName)
-        return hostingController
-    }
    
 }

@@ -6,7 +6,10 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol MainTabBarViewModelProtocol: AnyObject {
     var tabBarItems: [MainTabBarItemModel] { get set }
+    func createViewController(viewController: UIViewController, tag: MainControllers) -> UIViewController
+    func createSwiftUIController(someView: some View, tag: MainControllers) -> UIViewController
 }
