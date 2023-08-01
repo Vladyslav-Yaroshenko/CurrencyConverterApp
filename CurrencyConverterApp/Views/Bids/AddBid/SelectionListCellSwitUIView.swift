@@ -14,6 +14,14 @@ struct SelectionListCellSwitUIView: View {
     var currencyName: String
     var isSelectedImage: String
     
+    private func selectedImageColor() -> Color {
+        if isSelectedImage == "isSelectedFalse" {
+            return Color(red: 0.85, green: 0.85, blue: 0.85)
+        } else {
+            return Color(red: 0, green: 0.69, blue: 0.9)
+        }
+    }
+    
     var body: some View {
         HStack {
             Image(imageName)
@@ -29,7 +37,7 @@ struct SelectionListCellSwitUIView: View {
                 .renderingMode(.template)
                 .frame(width: 30, height: 30)
                 .clipShape(Circle())
-                .foregroundColor(Color(red: 0.85, green: 0.85, blue: 0.85))
+                .foregroundColor(selectedImageColor())
                 
         }
     }
@@ -37,6 +45,6 @@ struct SelectionListCellSwitUIView: View {
 
 struct SelectionListCellSwitUIView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectionListCellSwitUIView(currencyCode: "Euro", currencyName: "EUR", isSelectedImage: "isSelectedFalse")
+        SelectionListCellSwitUIView(currencyCode: "Euro", currencyName: "EUR", isSelectedImage: "isSelectedTrue")
     }
 }

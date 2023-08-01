@@ -9,9 +9,9 @@ import SwiftUI
 
 struct SelectCountrySwiftUIView: View {
     
-    var country: String
-    @State var countryFromText = "No country selected"
-    @State var currencyCode = "--"
+    var title: String
+    var countryFromText: String
+    var currencyCode: String
     
     var body: some View {
         
@@ -19,7 +19,7 @@ struct SelectCountrySwiftUIView: View {
             NavigationLink(destination: WalletView()) {
     
             }
-            Text("Select Country Currency \(country)")
+            Text("Select Country Currency \(title)")
                 .bold()
             
             HStack(spacing: 10) {
@@ -44,6 +44,8 @@ struct SelectCountrySwiftUIView: View {
 
 struct SelectCountrySwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectCountrySwiftUIView(country: "(FROM)")
+        SelectCountrySwiftUIView(title: "From",
+                                 countryFromText: "Country",
+                                 currencyCode: "--")
     }
 }

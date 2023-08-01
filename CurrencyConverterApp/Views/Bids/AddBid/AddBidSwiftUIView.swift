@@ -16,6 +16,11 @@ struct AddBidSwiftUIView: View {
     @State private var buttonBackgroundColor = Color(red: 0.80, green: 0.8, blue: 0.80)
     @State private var buttonDisabled = true
     
+    @State private var countryFrom = "Select Counrty Currency"
+    @State private var countryTo = "Select Counrty Currency"
+    @State private var currencyFrom = "--"
+    @State private var currencyTo = "--"
+    
     
     var body: some View {
         
@@ -29,13 +34,22 @@ struct AddBidSwiftUIView: View {
                     
                     TextField("Enter Bid Currency Value", text: $textFieldValue)
                         .textFieldStyle(.roundedBorder)
-                    NavigationLink(destination: SelectionListSwiftUIView()) {
-                        SelectCountrySwiftUIView(country: "FROM")
+                    NavigationLink(destination: SelectionListSwiftUIView(
+                        currencyCode: $countryFrom,
+                        currencyName: $currencyFrom)) {
+                            
+                        SelectCountrySwiftUIView(title: "(FROM)",
+                                                 countryFromText: countryFrom,
+                                                 currencyCode: currencyFrom)
                             .foregroundColor(.black)
                     }
                     
-                    NavigationLink(destination: SelectionListSwiftUIView()) {
-                        SelectCountrySwiftUIView(country: "TO")
+                    NavigationLink(destination: SelectionListSwiftUIView(
+                        currencyCode: $countryTo,
+                        currencyName: $currencyTo)) {
+                        SelectCountrySwiftUIView(title: "(TO)",
+                                                 countryFromText: countryTo,
+                                                 currencyCode: currencyTo)
                             .foregroundColor(.black)
                     }
                     
