@@ -16,11 +16,12 @@ struct AddBidSwiftUIView: View {
     @State private var buttonBackgroundColor = Color(red: 0.80, green: 0.8, blue: 0.80)
     @State private var buttonDisabled = true
     
-    @State private var countryFrom = "Select Counrty Currency"
-    @State private var countryTo = "Select Counrty Currency"
+    @State private var countryFrom = "Select Country Currency"
+    @State private var countryTo = "Select Country Currency"
     @State private var currencyFrom = "--"
     @State private var currencyTo = "--"
     
+    var viewModel = AddBidViewModel()
     
     var body: some View {
         
@@ -34,9 +35,9 @@ struct AddBidSwiftUIView: View {
                     
                     TextField("Enter Bid Currency Value", text: $textFieldValue)
                         .textFieldStyle(.roundedBorder)
+                        .keyboardType(.decimalPad)
                     NavigationLink(destination: SelectionListSwiftUIView(
-                        currencyCode: $countryFrom,
-                        currencyName: $currencyFrom)) {
+                        country: $countryFrom, code: $currencyFrom)) {
                             
                         SelectCountrySwiftUIView(title: "(FROM)",
                                                  countryFromText: countryFrom,
@@ -45,21 +46,22 @@ struct AddBidSwiftUIView: View {
                     }
                     
                     NavigationLink(destination: SelectionListSwiftUIView(
-                        currencyCode: $countryTo,
-                        currencyName: $currencyTo)) {
-                        SelectCountrySwiftUIView(title: "(TO)",
+                        country: $countryTo, code: $currencyTo)) {
+                            
+                        SelectCountrySwiftUIView(title: "(FROM)",
                                                  countryFromText: countryTo,
-                                                 currencyCode: currencyTo)
+                                                 currencyCode: countryTo)
                             .foregroundColor(.black)
                     }
                     
                 }
                 .padding()
                 
-                Spacer()
-                
                 Button(action: {
-                    presentationMode.wrappedValue.dismiss()
+                    //presentationMode.wrappedValue.dismiss()
+                    print(textFieldValue)
+                    print(countryFrom)
+                    print(countryTo)
                 }) {
                     Text("Add")
                         .font(
@@ -69,14 +71,26 @@ struct AddBidSwiftUIView: View {
                         .padding(.horizontal, 110)
                         .padding(.vertical, 10)
                         .foregroundColor(.white)
-                        .background(buttonBackgroundColor)
+                        .background(buttonDisabled ? buttonBackgroundColor : Color.blue)
                         .cornerRadius(8)
                     
                 }
                 .disabled(buttonDisabled)
                 .onChange(of: textFieldValue) { newValue in
-                    buttonDisabled = newValue.isEmpty
-                    buttonBackgroundColor = buttonDisabled ? Color(red: 0.80, green: 0.8, blue: 0.80) : .blue
+                    buttonDisabled = viewModel.isButtonActive(from: countryFrom,
+                                                              to: countryTo,
+                                                              isEmpty: newValue)
+                    
+                }
+                .onChange(of: countryFrom) { newValue in
+                    buttonDisabled = viewModel.isButtonActive(from: newValue,
+                                                              to: countryTo,
+                                                              isEmpty: textFieldValue)
+                }
+                .onChange(of: countryTo) { newValue in
+                    buttonDisabled = viewModel.isButtonActive(from: countryFrom,
+                                                              to: newValue,
+                                                              isEmpty: textFieldValue)
                 }
                 Spacer()
             
@@ -91,4 +105,3 @@ struct AddBidSwiftUIView_Previews: PreviewProvider {
         AddBidSwiftUIView()
     }
 }
-

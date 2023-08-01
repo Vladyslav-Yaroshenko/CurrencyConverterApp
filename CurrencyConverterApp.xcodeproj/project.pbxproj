@@ -54,6 +54,7 @@
 		878C254C2A78219A003F2DC6 /* SelectCountrySwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C254B2A78219A003F2DC6 /* SelectCountrySwiftUIView.swift */; };
 		878C254E2A790149003F2DC6 /* SelectionListSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C254D2A790149003F2DC6 /* SelectionListSwiftUIView.swift */; };
 		878C25512A790324003F2DC6 /* SelectionListCellSwitUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C25502A790324003F2DC6 /* SelectionListCellSwitUIView.swift */; };
+		878C255A2A795EBB003F2DC6 /* AddBidViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C25592A795EBB003F2DC6 /* AddBidViewModel.swift */; };
 		8791DED92A755BA0001B6654 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8791DED82A755BA0001B6654 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		878C254B2A78219A003F2DC6 /* SelectCountrySwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountrySwiftUIView.swift; sourceTree = "<group>"; };
 		878C254D2A790149003F2DC6 /* SelectionListSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionListSwiftUIView.swift; sourceTree = "<group>"; };
 		878C25502A790324003F2DC6 /* SelectionListCellSwitUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionListCellSwitUIView.swift; sourceTree = "<group>"; };
+		878C25592A795EBB003F2DC6 /* AddBidViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBidViewModel.swift; sourceTree = "<group>"; };
 		8791DED82A755BA0001B6654 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +190,7 @@
 		873B92BF2A7139F4003242CD /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				878C25582A795EAA003F2DC6 /* Bids */,
 				878C253E2A77D9D3003F2DC6 /* Wallet */,
 				873B93152A73D477003242CD /* MainTabBar */,
 				873B93142A73D46D003242CD /* CurrencyList */,
@@ -377,6 +380,14 @@
 			path = AddBid;
 			sourceTree = "<group>";
 		};
+		878C25582A795EAA003F2DC6 /* Bids */ = {
+			isa = PBXGroup;
+			children = (
+				878C25592A795EBB003F2DC6 /* AddBidViewModel.swift */,
+			);
+			path = Bids;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -492,6 +503,7 @@
 				873B93182A73D53C003242CD /* SettingsSelectedCurrencyCell.swift in Sources */,
 				873B92E12A727D27003242CD /* SearchableProtocol.swift in Sources */,
 				873B93242A742A71003242CD /* CurrentExchangeRate.swift in Sources */,
+				878C255A2A795EBB003F2DC6 /* AddBidViewModel.swift in Sources */,
 				878C253B2A77C660003F2DC6 /* WalletCellSwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
