@@ -14,7 +14,11 @@ struct SelectCountrySwiftUIView: View {
     @State var currencyCode = "--"
     
     var body: some View {
+        
         VStack(alignment: .leading, spacing: 15, content: {
+            NavigationLink(destination: WalletView()) {
+    
+            }
             Text("Select Country Currency \(country)")
                 .bold()
             

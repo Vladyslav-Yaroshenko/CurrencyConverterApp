@@ -52,6 +52,8 @@
 		878C25472A77F92C003F2DC6 /* BidsCellSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C25462A77F92C003F2DC6 /* BidsCellSwiftUIView.swift */; };
 		878C254A2A781056003F2DC6 /* AddBidSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C25492A781056003F2DC6 /* AddBidSwiftUIView.swift */; };
 		878C254C2A78219A003F2DC6 /* SelectCountrySwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C254B2A78219A003F2DC6 /* SelectCountrySwiftUIView.swift */; };
+		878C254E2A790149003F2DC6 /* SelectionListSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C254D2A790149003F2DC6 /* SelectionListSwiftUIView.swift */; };
+		878C25512A790324003F2DC6 /* SelectionListCellSwitUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C25502A790324003F2DC6 /* SelectionListCellSwitUIView.swift */; };
 		8791DED92A755BA0001B6654 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8791DED82A755BA0001B6654 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +105,8 @@
 		878C25462A77F92C003F2DC6 /* BidsCellSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidsCellSwiftUIView.swift; sourceTree = "<group>"; };
 		878C25492A781056003F2DC6 /* AddBidSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBidSwiftUIView.swift; sourceTree = "<group>"; };
 		878C254B2A78219A003F2DC6 /* SelectCountrySwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountrySwiftUIView.swift; sourceTree = "<group>"; };
+		878C254D2A790149003F2DC6 /* SelectionListSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionListSwiftUIView.swift; sourceTree = "<group>"; };
+		878C25502A790324003F2DC6 /* SelectionListCellSwitUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionListCellSwitUIView.swift; sourceTree = "<group>"; };
 		8791DED82A755BA0001B6654 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -355,9 +359,9 @@
 		878C25432A77F747003F2DC6 /* Bids */ = {
 			isa = PBXGroup;
 			children = (
-				878C25482A78103B003F2DC6 /* AddBid */,
 				878C25442A77F758003F2DC6 /* BidsSwiftUIView.swift */,
 				878C25462A77F92C003F2DC6 /* BidsCellSwiftUIView.swift */,
+				878C25482A78103B003F2DC6 /* AddBid */,
 			);
 			path = Bids;
 			sourceTree = "<group>";
@@ -367,6 +371,8 @@
 			children = (
 				878C25492A781056003F2DC6 /* AddBidSwiftUIView.swift */,
 				878C254B2A78219A003F2DC6 /* SelectCountrySwiftUIView.swift */,
+				878C254D2A790149003F2DC6 /* SelectionListSwiftUIView.swift */,
+				878C25502A790324003F2DC6 /* SelectionListCellSwitUIView.swift */,
 			);
 			path = AddBid;
 			sourceTree = "<group>";
@@ -444,6 +450,7 @@
 			files = (
 				878C253D2A77D17A003F2DC6 /* WalletCellModel.swift in Sources */,
 				878C25402A77D9E8003F2DC6 /* WalletCellViewModel.swift in Sources */,
+				878C25512A790324003F2DC6 /* SelectionListCellSwitUIView.swift in Sources */,
 				873B92A12A7134E9003242CD /* AppDelegate.swift in Sources */,
 				873B93262A742D75003242CD /* Constants.swift in Sources */,
 				873B92C62A71405B003242CD /* CurrencyListTableViewController.swift in Sources */,
@@ -467,6 +474,7 @@
 				873B92BD2A713791003242CD /* MainTabBarController.swift in Sources */,
 				873B92D52A7190A4003242CD /* MainTabBarViewModelProtocol.swift in Sources */,
 				873B92AB2A7134E9003242CD /* CurrencyConverterApp.xcdatamodeld in Sources */,
+				878C254E2A790149003F2DC6 /* SelectionListSwiftUIView.swift in Sources */,
 				873B931E2A742236003242CD /* NetworkManagerProtocol.swift in Sources */,
 				873B92ED2A72A155003242CD /* TableViewModelProtocol.swift in Sources */,
 				878C25452A77F758003F2DC6 /* BidsSwiftUIView.swift in Sources */,

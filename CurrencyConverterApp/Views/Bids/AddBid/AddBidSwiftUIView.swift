@@ -14,10 +14,11 @@ struct AddBidSwiftUIView: View {
     @State private var textFieldValue = ""
     @State private var textLabel = "Bid value"
     @State private var buttonBackgroundColor = Color(red: 0.80, green: 0.8, blue: 0.80)
+    @State private var buttonDisabled = true
     
     
     var body: some View {
-        NavigationView {
+        
             VStack(alignment: .center, spacing: 40) {
                 VStack(alignment: .leading, spacing: 20) {
                     Text(textLabel)
@@ -28,9 +29,15 @@ struct AddBidSwiftUIView: View {
                     
                     TextField("Enter Bid Currency Value", text: $textFieldValue)
                         .textFieldStyle(.roundedBorder)
+                    NavigationLink(destination: SelectionListSwiftUIView()) {
+                        SelectCountrySwiftUIView(country: "FROM")
+                            .foregroundColor(.black)
+                    }
                     
-                    SelectCountrySwiftUIView(country: "FROM")
-                    SelectCountrySwiftUIView(country: "TO")
+                    NavigationLink(destination: SelectionListSwiftUIView()) {
+                        SelectCountrySwiftUIView(country: "TO")
+                            .foregroundColor(.black)
+                    }
                     
                 }
                 .padding()
@@ -50,16 +57,15 @@ struct AddBidSwiftUIView: View {
                         .foregroundColor(.white)
                         .background(buttonBackgroundColor)
                         .cornerRadius(8)
+                    
                 }
-                .onChange(of: textFieldValue) { _ in
-                    if textFieldValue != "" {
-                        buttonBackgroundColor = .blue
-                    } else {
-                        buttonBackgroundColor = Color(red: 0.80, green: 0.8, blue: 0.80)
-                    }
+                .disabled(buttonDisabled)
+                .onChange(of: textFieldValue) { newValue in
+                    buttonDisabled = newValue.isEmpty
+                    buttonBackgroundColor = buttonDisabled ? Color(red: 0.80, green: 0.8, blue: 0.80) : .blue
                 }
                 Spacer()
-            }
+            
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Add Bid")
@@ -71,3 +77,4 @@ struct AddBidSwiftUIView_Previews: PreviewProvider {
         AddBidSwiftUIView()
     }
 }
+
