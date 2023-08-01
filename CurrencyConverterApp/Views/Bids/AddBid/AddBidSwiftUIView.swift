@@ -59,7 +59,7 @@ struct AddBidSwiftUIView: View {
                 Spacer()
                 
                 Button(action: {
-                    print("Open button")
+                    presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("Add")
                         .font(
