@@ -22,6 +22,7 @@ struct AddBidSwiftUIView: View {
     @State private var currencyTo = "--"
     
     var viewModel = AddBidViewModel()
+    var bidsViewModel: BidsViewModel
     
     var body: some View {
         
@@ -37,7 +38,7 @@ struct AddBidSwiftUIView: View {
                         .textFieldStyle(.roundedBorder)
                         .keyboardType(.decimalPad)
                     NavigationLink(destination: SelectionListSwiftUIView(
-                        country: $countryFrom, code: $currencyFrom)) {
+                        country: $countryFrom, codeName: $currencyFrom)) {
                             
                         SelectCountrySwiftUIView(title: "(FROM)",
                                                  countryFromText: countryFrom,
@@ -46,7 +47,7 @@ struct AddBidSwiftUIView: View {
                     }
                     
                     NavigationLink(destination: SelectionListSwiftUIView(
-                        country: $countryTo, code: $currencyTo)) {
+                        country: $countryTo, codeName: $currencyTo)) {
                             
                         SelectCountrySwiftUIView(title: "(FROM)",
                                                  countryFromText: countryTo,
@@ -58,10 +59,12 @@ struct AddBidSwiftUIView: View {
                 .padding()
                 
                 Button(action: {
-                    //presentationMode.wrappedValue.dismiss()
-                    print(textFieldValue)
-                    print(countryFrom)
-                    print(countryTo)
+                    
+                    bidsViewModel.convertСurrency(from: countryFrom,
+                                                  to: countryTo,
+                                                  value: textFieldValue)
+                    presentationMode.wrappedValue.dismiss()
+                    
                 }) {
                     Text("Add")
                         .font(
@@ -102,6 +105,6 @@ struct AddBidSwiftUIView: View {
 
 struct AddBidSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        AddBidSwiftUIView()
+        AddBidSwiftUIView(bidsViewModel: BidsViewModel())
     }
 }

@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct BidsCellSwiftUIView: View {
+    
+    var viewModel: BidsCellViewModel
+    
     var body: some View {
-       
         
         VStack(alignment: .leading, spacing: 15, content: {
             HStack {
@@ -42,13 +44,13 @@ struct BidsCellSwiftUIView: View {
                 }
                 
             }
-            Text("USD / EUR")
+            Text("\(viewModel.currencyFrom) / \(viewModel.currencyTo)")
             HStack {
-                Text("1200.00 USD")
+                Text("\(viewModel.bidValue) \(viewModel.currencyFrom)")
                 Spacer()
                 Image(systemName: "arrow.forward")
                 Spacer()
-                Text("4000 UAH")
+                Text("\(viewModel.convertedValue) \(viewModel.currencyTo)")
             }
         })
         
@@ -57,6 +59,9 @@ struct BidsCellSwiftUIView: View {
 
 struct BidsCellSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        BidsCellSwiftUIView()
+        BidsCellSwiftUIView(viewModel: BidsCellViewModel(currencyFrom: "EUR",
+                                                         currencyTo: "UAH",
+                                                         bidValue: "1000",
+                                                         convertedValue: "27000"))
     }
 }

@@ -55,6 +55,9 @@
 		878C254E2A790149003F2DC6 /* SelectionListSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C254D2A790149003F2DC6 /* SelectionListSwiftUIView.swift */; };
 		878C25512A790324003F2DC6 /* SelectionListCellSwitUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C25502A790324003F2DC6 /* SelectionListCellSwitUIView.swift */; };
 		878C255A2A795EBB003F2DC6 /* AddBidViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C25592A795EBB003F2DC6 /* AddBidViewModel.swift */; };
+		878F4DB92A7A38E700D4BFA6 /* BidsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878F4DB82A7A38E700D4BFA6 /* BidsViewModel.swift */; };
+		878F4DBB2A7A3A5D00D4BFA6 /* BidsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878F4DBA2A7A3A5D00D4BFA6 /* BidsCellViewModel.swift */; };
+		878F4DBD2A7A3FB300D4BFA6 /* СonvertibleСurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878F4DBC2A7A3FB300D4BFA6 /* СonvertibleСurrencies.swift */; };
 		8791DED92A755BA0001B6654 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8791DED82A755BA0001B6654 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +112,9 @@
 		878C254D2A790149003F2DC6 /* SelectionListSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionListSwiftUIView.swift; sourceTree = "<group>"; };
 		878C25502A790324003F2DC6 /* SelectionListCellSwitUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionListCellSwitUIView.swift; sourceTree = "<group>"; };
 		878C25592A795EBB003F2DC6 /* AddBidViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBidViewModel.swift; sourceTree = "<group>"; };
+		878F4DB82A7A38E700D4BFA6 /* BidsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidsViewModel.swift; sourceTree = "<group>"; };
+		878F4DBA2A7A3A5D00D4BFA6 /* BidsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidsCellViewModel.swift; sourceTree = "<group>"; };
+		878F4DBC2A7A3FB300D4BFA6 /* СonvertibleСurrencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СonvertibleСurrencies.swift"; sourceTree = "<group>"; };
 		8791DED82A755BA0001B6654 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +212,7 @@
 				873B92CD2A715C7F003242CD /* CurrencyListModel.swift */,
 				873B93232A742A71003242CD /* CurrentExchangeRate.swift */,
 				878C253C2A77D17A003F2DC6 /* WalletCellModel.swift */,
+				878F4DBC2A7A3FB300D4BFA6 /* СonvertibleСurrencies.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -384,6 +391,8 @@
 			isa = PBXGroup;
 			children = (
 				878C25592A795EBB003F2DC6 /* AddBidViewModel.swift */,
+				878F4DB82A7A38E700D4BFA6 /* BidsViewModel.swift */,
+				878F4DBA2A7A3A5D00D4BFA6 /* BidsCellViewModel.swift */,
 			);
 			path = Bids;
 			sourceTree = "<group>";
@@ -469,6 +478,7 @@
 				878C254A2A781056003F2DC6 /* AddBidSwiftUIView.swift in Sources */,
 				873B93122A73D3B9003242CD /* SettingsSelectedCurrencyCellViewModel.swift in Sources */,
 				878C254C2A78219A003F2DC6 /* SelectCountrySwiftUIView.swift in Sources */,
+				878F4DBD2A7A3FB300D4BFA6 /* СonvertibleСurrencies.swift in Sources */,
 				873B92F72A72A7B2003242CD /* SettingsCellViewModelProtocol.swift in Sources */,
 				8791DED92A755BA0001B6654 /* ErrorView.swift in Sources */,
 				873B930A2A73CF2A003242CD /* SettingsSelectedCurrencyViewModelProtocol.swift in Sources */,
@@ -491,8 +501,10 @@
 				878C25452A77F758003F2DC6 /* BidsSwiftUIView.swift in Sources */,
 				873B93222A7423B5003242CD /* NetworkManager.swift in Sources */,
 				878C252F2A7685AC003F2DC6 /* NetworkViewProtocol.swift in Sources */,
+				878F4DBB2A7A3A5D00D4BFA6 /* BidsCellViewModel.swift in Sources */,
 				873B92DB2A719603003242CD /* CurrencyListTableViewCellViewModelProtocol.swift in Sources */,
 				873B92EF2A72A204003242CD /* SettingsViewModel.swift in Sources */,
+				878F4DB92A7A38E700D4BFA6 /* BidsViewModel.swift in Sources */,
 				873B92F12A72A2AB003242CD /* SettingsViewModelProtocol.swift in Sources */,
 				873B92FB2A72AD9B003242CD /* SettingsTableViewController.swift in Sources */,
 				873B931A2A73D766003242CD /* StorageManager.swift in Sources */,

@@ -18,9 +18,9 @@ class AddBidViewModel: ObservableObject {
 
 
 //private var isFormValidPublisher: AnyPublisher<Bool, Never> {
-//        Publishers.CombineLatest3(textFieldValuePublisher, selectedCountryFromPublisher, selectedCountryToPublisher)
-//            .map { textFieldValue, selectedCountryFrom, selectedCountryTo in
-//                return !textFieldValue.isEmpty && selectedCountryFrom != "No Country Selected" && selectedCountryTo != "No Country Selected"
-//            }
-//            .eraseToAnyPublisher()
-//    }
+//    Publishers.CombineLatest3(textFieldValuePublisher, selectedCountryFromPublisher, selectedCountryToPublisher)
+//        .map { textFieldValue, selectedCountryFrom, selectedCountryTo in
+//            return !textFieldValue.isEmpty && selectedCountryFrom != "No Country Selected" && selectedCountryTo != "No Country Selected"
+//        }
+//        .eraseToAnyPublisher()
+//}

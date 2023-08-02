@@ -16,19 +16,19 @@ struct SelectionListSwiftUIView: View {
     let items = StorageManager.shared.getCurrencies()
     
     @Binding var country: String
-    @Binding var code: String
+    @Binding var codeName: String
     
     var body: some View {
             List {
                 ForEach(items, id: \.self) { item in
-                    let selectedImage = (code == item.currencyCode) ? "isSelectedTrue" : "isSelectedFalse"
+                    let selectedImage = (codeName == item.currencyCode) ? "isSelectedTrue" : "isSelectedFalse"
                     SelectionListCellSwitUIView(imageName: "euro",
                                                 currencyCode: item.currencyCode,
                                                 currencyName: item.currencyName,
                                                 isSelectedImage: selectedImage)
                     .onTapGesture {
-                        country = item.currencyName
-                        code = item.currencyCode
+                        country = item.currencyCode
+                        codeName = item.currencyName
                         presentationMode.wrappedValue.dismiss()
                     }
                 }

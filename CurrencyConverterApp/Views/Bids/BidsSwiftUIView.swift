@@ -6,14 +6,18 @@
 //
 
 import SwiftUI
+import Combine
 
 struct BidsSwiftUIView: View {
+    
+    @StateObject var viewModel = BidsViewModel()
+    
     var body: some View {
         NavigationView {
             List {
-                BidsCellSwiftUIView()
-                BidsCellSwiftUIView()
-                BidsCellSwiftUIView()
+                ForEach(viewModel.bids, id: \.self) { bidViewModel in
+                                    BidsCellSwiftUIView(viewModel: bidViewModel)
+                                }
             }
             .listStyle(.plain)
             
@@ -22,7 +26,7 @@ struct BidsSwiftUIView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        print("search bids")
+                        print(viewModel.bids.count)
                     }) {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(Color(red: 0.85,
@@ -33,7 +37,7 @@ struct BidsSwiftUIView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
-                        AddBidSwiftUIView()
+                        AddBidSwiftUIView(bidsViewModel: viewModel)
                     } label: {
                         Image(systemName: "plus")
                             .foregroundColor(Color(red: 0.85,
