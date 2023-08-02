@@ -50,7 +50,7 @@ struct AddBidSwiftUIView: View {
                             
                         SelectCountrySwiftUIView(title: "(FROM)",
                                                  countryFromText: countryTo,
-                                                 currencyCode: countryTo)
+                                                 currencyCode: currencyTo)
                             .foregroundColor(.black)
                     }
                     

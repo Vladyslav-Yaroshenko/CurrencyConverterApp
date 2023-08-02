@@ -12,7 +12,7 @@ import Combine
 class AddBidViewModel: ObservableObject {
     
     func isButtonActive(from: String, to: String, isEmpty: String) -> Bool {
-        return (from != "Select Counrty Currency") && (to != "Select Counrty Currency") && (!isEmpty.isEmpty)
+        return (from == "Select Country Currency") || (to == "Select Country Currency") || (isEmpty.isEmpty)
     }
 }
 
