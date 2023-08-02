@@ -11,22 +11,33 @@ import Combine
 struct BidsSwiftUIView: View {
     
     @StateObject var viewModel = BidsViewModel()
+    @State var searchText: String = ""
+    
+    var searchResults: [BidsCellViewModel] {
+        if searchText.isEmpty {
+            return viewModel.bids
+        } else {
+            return viewModel.bids.filter { $0.currencyFrom.lowercased().contains(searchText.lowercased()) || $0.currencyTo.lowercased().contains(searchText.lowercased())}
+        }
+    }
+    
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.bids, id: \.self) { bidViewModel in
+                ForEach(searchResults, id: \.self) { bidViewModel in
                                     BidsCellSwiftUIView(viewModel: bidViewModel)
                                 }
             }
             .listStyle(.plain)
+            .searchable(text: $searchText)
             
             .navigationTitle(Text("Bids"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        print(viewModel.bids.count)
+                
                     }) {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(Color(red: 0.85,
